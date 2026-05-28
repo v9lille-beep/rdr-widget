@@ -648,6 +648,15 @@ function rdrRS(){
   RDR.geo=null;rdrGo(0);
 }
 rdrPG(0);rdrRU();
+// Auto-resize iframe height
+function rdrSendH(){
+  var h=document.getElementById('rdrw').scrollHeight;
+  window.parent.postMessage({rdrH:h},'*');
+}
+var rdrObs=new MutationObserver(rdrSendH);
+rdrObs.observe(document.getElementById('rdrw'),{childList:true,subtree:true,attributes:true});
+window.addEventListener('load',rdrSendH);
+setTimeout(rdrSendH,300);
 </script>
 </body>
 </html>
