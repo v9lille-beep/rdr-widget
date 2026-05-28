@@ -4,170 +4,170 @@
 <meta charset="UTF-8"/>
 <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
 <title>Biodiversity Score · Les Reines du Rucher</title>
-<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet"/>
 <style>
 :root{
   --honey:#c8860a;--amber:#d49a18;--bark:#2e1f08;--wood:#5a3a10;
-  --cream:#fefaf2;--sand:#e8dcc8;--stone:#8a7860;--fern:#508028;
-  --sky:#4888a8;--ok:#386818;--great:#186840;--green:#C0D2C1;
-  --ff-d:'Cormorant Garamond',Georgia,serif;
-  --ff-b:'DM Sans',system-ui,sans-serif;
+  --cream:#fefaf2;--sand:#e8dcc8;--stone:#8a7860;
+  --ok:#386818;--green:#C0D2C1;
 }
-*{box-sizing:border-box;margin:0;padding:0}
-html,body{background:var(--cream);font-family:var(--ff-b);font-size:15px;color:#1a1008}
-
-/* ── CARD (pleine largeur) ── */
-#rdrw{width:100%;background:var(--cream)}
-#rdrw *{box-sizing:border-box;margin:0;padding:0}
-
-/* ── CENTRAGE INTERNE ── */
-.inner{max-width:780px;margin:0 auto;padding:0 2rem}
+#rdrw{width:100%;font-family:inherit;font-size:inherit;color:inherit;background:transparent}
+#rdrw *{box-sizing:border-box;margin:0;padding:0;font-family:inherit}
 
 /* ── PROGRESS ── */
-.prog{padding:.9rem 0 .2rem}
-.prog .inner{display:flex;gap:3px}
-.prog-s{flex:1;height:2px;background:var(--sand);border-radius:2px;overflow:hidden}
-.prog-f{height:100%;width:0%;background:linear-gradient(90deg,var(--honey),var(--amber));transition:width .4s ease;border-radius:2px}
+.rdr-prog{display:flex;gap:3px;padding:.6rem 0 .3rem;width:100%}
+.rdr-prog-s{flex:1;height:3px;background:var(--sand);border-radius:2px;overflow:hidden}
+.rdr-prog-f{height:100%;width:0%;background:linear-gradient(90deg,var(--honey),var(--amber));transition:width .4s ease;border-radius:2px}
 
 /* ── STEPS ── */
-.step{display:none;padding:1.8rem 0 2.2rem;animation:rdrFU .3s ease both}
-.step.on{display:block}
-@keyframes rdrFU{from{opacity:0;transform:translateY(10px)}to{opacity:1;transform:translateY(0)}}
+.rdr-step{display:none;width:100%;animation:rdrFU .25s ease both}
+.rdr-step.on{display:block}
+@keyframes rdrFU{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:translateY(0)}}
 
-.chip{font-size:.62rem;letter-spacing:.14em;text-transform:uppercase;color:#555;margin-bottom:.3rem}
-.stitle{font-family:var(--ff-d);font-size:1.7rem;font-weight:500;color:var(--bark);line-height:1.2;margin-bottom:.3rem}
-.stitle em{font-style:italic;color:var(--honey)}
-.ssub{font-size:.78rem;color:#444;line-height:1.6;margin-bottom:1.2rem}
+.rdr-chip{font-size:.6rem;letter-spacing:.14em;text-transform:uppercase;color:#666;margin-bottom:.2rem}
+.rdr-stitle{font-size:1.5rem;font-weight:600;color:var(--bark);line-height:1.2;margin-bottom:.2rem}
+.rdr-stitle em{font-style:italic;color:var(--honey);font-weight:400}
+.rdr-ssub{font-size:.8rem;color:#555;line-height:1.6;margin-bottom:1rem}
 
-.warn-box{background:#fff8e8;border:1.5px solid var(--honey);border-radius:8px;padding:.75rem 1rem;margin-bottom:1rem;font-size:.76rem;color:var(--bark);line-height:1.6}
-.af-bar{background:#f0f8e8;border:1px solid #b0d880;border-radius:8px;padding:.7rem 1rem;margin-bottom:1rem;display:flex;gap:10px;align-items:flex-start}
-.af-bar.hidden{display:none}
-.af-title{font-size:.65rem;font-weight:500;color:var(--ok);margin-bottom:2px}
-.af-desc{font-size:.62rem;color:#2a5010;line-height:1.5}
-.af-src{font-size:.55rem;color:#6a9040;margin-top:2px;font-style:italic}
+.rdr-warn{background:#fff8e8;border:1.5px solid var(--honey);border-radius:6px;padding:.65rem .9rem;margin-bottom:.9rem;font-size:.8rem;color:var(--bark);line-height:1.6}
+.rdr-af{background:#f0f8e8;border:1px solid #b0d880;border-radius:6px;padding:.6rem .9rem;margin-bottom:.9rem;display:flex;gap:8px;align-items:flex-start}
+.rdr-af.hidden{display:none}
+.rdr-af-title{font-size:.65rem;font-weight:600;color:var(--ok);margin-bottom:2px}
+.rdr-af-desc{font-size:.62rem;color:#2a5010;line-height:1.5}
+.rdr-af-src{font-size:.55rem;color:#6a9040;margin-top:2px;font-style:italic}
 
 /* ── FIELDS ── */
-.field{margin-bottom:1rem}
-.field label{display:flex;align-items:center;gap:5px;font-size:.68rem;letter-spacing:.09em;text-transform:uppercase;color:#1a1008;font-weight:500;margin-bottom:.35rem}
-.src-b{font-size:.5rem;padding:1px 5px;border-radius:8px;background:#dff0c8;color:#3a6010;display:none}
-.field input[type=text],.field select{width:100%;padding:.7rem 1rem;background:white;border:1px solid var(--sand);border-radius:7px;font-family:var(--ff-b);font-size:.9rem;color:#1a1008;outline:none;-webkit-appearance:none;appearance:none;transition:border-color .2s}
-.field input:focus,.field select:focus{border-color:var(--honey)}
-.field select{background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='10' height='6'%3E%3Cpath d='M0 0l5 6 5-6z' fill='%232e1f08'/%3E%3C/svg%3E");background-repeat:no-repeat;background-position:right .9rem center;padding-right:2.2rem;cursor:pointer}
-.field-row{display:grid;grid-template-columns:1fr 1fr;gap:.9rem}
-.site-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:.55rem;margin-top:.35rem}
-.sc{background:white;border:1px solid var(--sand);border-radius:9px;padding:.7rem .55rem;cursor:pointer;text-align:center;transition:all .18s}
-.sc:hover,.sc.on{border-color:var(--honey);background:#fffbf2}
-.sc.on{box-shadow:0 0 0 1px var(--honey)}
-.sc-icon{font-size:1.2rem;margin-bottom:3px}
-.sc-name{font-size:.67rem;color:#1a1008}
+.rdr-field{margin-bottom:.9rem;width:100%}
+.rdr-field label{display:flex;align-items:center;gap:5px;font-size:.65rem;letter-spacing:.1em;text-transform:uppercase;color:#1a1008;font-weight:600;margin-bottom:.3rem}
+.rdr-src-b{font-size:.5rem;padding:1px 5px;border-radius:8px;background:#dff0c8;color:#3a6010;display:none;font-weight:400;letter-spacing:0;text-transform:none}
+.rdr-field input[type=text],.rdr-field select{
+  width:100%;padding:.6rem .9rem;
+  background:white;border:1px solid var(--sand);border-radius:6px;
+  font-size:.9rem;color:#1a1008;outline:none;
+  -webkit-appearance:none;appearance:none;transition:border-color .2s;
+}
+.rdr-field input:focus,.rdr-field select:focus{border-color:var(--honey)}
+.rdr-field select{
+  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='10' height='6'%3E%3Cpath d='M0 0l5 6 5-6z' fill='%232e1f08'/%3E%3C/svg%3E");
+  background-repeat:no-repeat;background-position:right .8rem center;padding-right:2rem;cursor:pointer;
+}
+.rdr-field-row{display:grid;grid-template-columns:1fr 1fr;gap:.75rem}
+.rdr-site-grid{display:grid;grid-template-columns:repeat(6,1fr);gap:.45rem;margin-top:.3rem}
+.rdr-sc{background:white;border:1px solid var(--sand);border-radius:7px;padding:.6rem .4rem;cursor:pointer;text-align:center;transition:all .15s}
+.rdr-sc:hover,.rdr-sc.on{border-color:var(--honey);background:#fffbf2}
+.rdr-sc.on{box-shadow:0 0 0 1px var(--honey)}
+.rdr-sc-icon{font-size:1.1rem;margin-bottom:2px}
+.rdr-sc-name{font-size:.62rem;color:#1a1008}
 
-/* ── RADIO GROUPS ── */
-.rg{display:flex;flex-direction:column;gap:.4rem}
-.ro{display:flex;align-items:center;gap:10px;padding:.6rem .9rem;background:white;border:1px solid var(--sand);border-radius:8px;cursor:pointer;transition:all .15s}
-.ro:hover{border-color:var(--honey);background:#fffbf0}
-.ro.on{border-color:var(--honey);background:#fffbf0;box-shadow:0 0 0 1px var(--honey)}
-.ro.pf{border-color:#b0d880;background:#f8fcf0}
-.ro.pf.on{border-color:var(--honey);background:#fffbf0;box-shadow:0 0 0 1px var(--honey)}
-.rc{width:16px;height:16px;border-radius:50%;border:1.5px solid var(--sand);flex-shrink:0;display:flex;align-items:center;justify-content:center;transition:all .15s}
-.ro.on .rc{border-color:var(--honey);background:var(--honey)}
-.ro.on .rc::after{content:'';width:5px;height:5px;border-radius:50%;background:white}
-.rl{font-size:.8rem;color:#1a1008;flex:1}
-.rp{font-size:.62rem;color:#555;visibility:hidden}
-.ro.on .rp{color:var(--honey);font-weight:500;visibility:visible}
-.rsrc{font-size:.5rem;padding:1px 5px;border-radius:6px;background:#dff0c8;color:#3a6010;margin-left:6px}
+/* ── RADIO ── */
+.rdr-rg{display:grid;grid-template-columns:1fr 1fr;gap:.4rem}
+.rdr-ro{display:flex;align-items:center;gap:9px;padding:.55rem .8rem;background:white;border:1px solid var(--sand);border-radius:7px;cursor:pointer;transition:all .14s}
+.rdr-ro:hover{border-color:var(--honey);background:#fffbf0}
+.rdr-ro.on{border-color:var(--honey);background:#fffbf0;box-shadow:0 0 0 1px var(--honey)}
+.rdr-ro.pf{border-color:#b0d880;background:#f8fcf0}
+.rdr-ro.pf.on{border-color:var(--honey);background:#fffbf0;box-shadow:0 0 0 1px var(--honey)}
+.rdr-rc{width:15px;height:15px;border-radius:50%;border:1.5px solid #ccc;flex-shrink:0;display:flex;align-items:center;justify-content:center;transition:all .14s}
+.rdr-ro.on .rdr-rc{border-color:var(--honey);background:var(--honey)}
+.rdr-ro.on .rdr-rc::after{content:'';width:5px;height:5px;border-radius:50%;background:white}
+.rdr-rl{font-size:.78rem;color:#1a1008;flex:1;line-height:1.3}
+.rdr-rp{font-size:.58rem;color:#aaa;white-space:nowrap}
+.rdr-ro.on .rdr-rp{color:var(--honey);font-weight:600}
+.rdr-rsrc{font-size:.5rem;padding:1px 5px;border-radius:5px;background:#dff0c8;color:#3a6010;margin-left:4px;font-weight:400}
 
 /* ── SLIDER ── */
-.slider-wrap{margin-top:.35rem}
-.slider-row{display:flex;align-items:center;gap:1rem}
-.slider-row input[type=range]{flex:1;-webkit-appearance:none;height:3px;background:var(--sand);border-radius:2px;outline:none}
-.slider-row input[type=range]::-webkit-slider-thumb{-webkit-appearance:none;width:20px;height:20px;border-radius:50%;background:var(--honey);cursor:pointer;box-shadow:0 1px 6px rgba(0,0,0,.2)}
-.snum{font-family:var(--ff-d);font-size:1.6rem;font-weight:500;color:var(--bark);min-width:2rem;text-align:right;line-height:1}
-.ssub2{font-size:.57rem;color:#555;margin-top:2px;text-align:right}
-.slbls{display:flex;justify-content:space-between;font-size:.62rem;color:#555;margin-top:3px}
-.rpts{font-size:.7rem;color:var(--honey);font-weight:600;margin-top:.3rem}
+.rdr-slider-wrap{margin-top:.3rem}
+.rdr-slider-row{display:flex;align-items:center;gap:.8rem}
+.rdr-slider-row input[type=range]{flex:1;-webkit-appearance:none;height:3px;background:var(--sand);border-radius:2px;outline:none}
+.rdr-slider-row input[type=range]::-webkit-slider-thumb{-webkit-appearance:none;width:18px;height:18px;border-radius:50%;background:var(--honey);cursor:pointer;box-shadow:0 1px 5px rgba(0,0,0,.2)}
+.rdr-snum{font-size:1.5rem;font-weight:700;color:var(--bark);min-width:1.8rem;text-align:right;line-height:1}
+.rdr-ssub2{font-size:.55rem;color:#555;margin-top:1px;text-align:right}
+.rdr-slbls{display:flex;justify-content:space-between;font-size:.6rem;color:#777;margin-top:2px}
+.rdr-rpts{font-size:.68rem;color:var(--honey);font-weight:600;margin-top:.25rem}
 
 /* ── BUTTONS ── */
-.btn{display:inline-flex;align-items:center;justify-content:center;gap:6px;padding:.65rem 1.5rem;border-radius:30px;cursor:pointer;font-family:var(--ff-b);font-size:.72rem;letter-spacing:.06em;text-transform:uppercase;transition:all .2s;border:none}
-.btn-p{background:var(--honey);color:white;box-shadow:0 2px 12px rgba(200,134,10,.35)}
-.btn-p:hover{background:var(--amber);transform:translateY(-1px)}
-.btn-s{background:transparent;color:var(--wood);border:1px solid var(--sand)}
-.btn-s:hover{border-color:var(--stone);background:var(--sand)}
-.btn-pdf{background:var(--bark);color:#e8b830;border:1px solid rgba(232,184,48,.25)}
-.btn-pdf:hover{background:var(--wood)}
-.btn-row{display:flex;justify-content:space-between;align-items:center;margin-top:1.4rem}
+.rdr-btn{display:inline-flex;align-items:center;justify-content:center;gap:6px;padding:.6rem 1.4rem;border-radius:30px;cursor:pointer;font-size:.7rem;letter-spacing:.07em;text-transform:uppercase;transition:all .18s;border:none}
+.rdr-btn-p{background:var(--honey);color:white;box-shadow:0 2px 10px rgba(200,134,10,.3)}
+.rdr-btn-p:hover{background:var(--amber);transform:translateY(-1px)}
+.rdr-btn-s{background:transparent;color:var(--wood);border:1px solid var(--sand)}
+.rdr-btn-s:hover{border-color:var(--stone);background:var(--sand)}
+.rdr-btn-pdf{background:var(--bark);color:#e8b830;border:1px solid rgba(232,184,48,.2)}
+.rdr-btn-pdf:hover{background:var(--wood)}
+.rdr-btn-row{display:flex;justify-content:space-between;align-items:center;margin-top:1.2rem;padding-top:.8rem;border-top:1px solid var(--sand)}
 
 /* ── RESULT ── */
-.res{display:none;padding:2rem 0;animation:rdrFU .3s ease both}
-.res.on{display:block}
-.res-hdr{text-align:center;margin-bottom:1.8rem}
-.ring-w{position:relative;width:165px;height:165px;margin:0 auto 1rem}
-.ring-w svg{display:block}
-.ring-bg{fill:none;stroke:var(--sand);stroke-width:10}
-.ring-arc{fill:none;stroke-width:10;stroke-linecap:round;stroke-dasharray:440;stroke-dashoffset:440;transform-origin:center;transform:rotate(-90deg);transition:stroke-dashoffset 2.2s cubic-bezier(.34,1.56,.64,1),stroke .4s}
-.ring-c{position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center}
-.rnum{font-family:var(--ff-d);font-size:3rem;font-weight:600;color:var(--bark);line-height:1}
-.rden{font-size:.65rem;color:var(--stone);letter-spacing:.06em}
-.rlvl{font-family:var(--ff-d);font-size:1.6rem;font-style:italic;font-weight:500;margin-bottom:.3rem}
-.rtag{font-size:.7rem;color:#444;letter-spacing:.07em;text-transform:uppercase}
-.rco{margin-top:.5rem;font-size:.7rem;color:#555}
+.rdr-res{display:none;width:100%;animation:rdrFU .25s ease both}
+.rdr-res.on{display:block}
+.rdr-res-hdr{text-align:center;margin-bottom:1.5rem}
+.rdr-ring-w{position:relative;width:155px;height:155px;margin:0 auto .8rem}
+.rdr-ring-w svg{display:block}
+.rdr-ring-bg{fill:none;stroke:var(--sand);stroke-width:10}
+.rdr-ring-arc{fill:none;stroke-width:10;stroke-linecap:round;stroke-dasharray:440;stroke-dashoffset:440;transform-origin:center;transform:rotate(-90deg);transition:stroke-dashoffset 2.2s cubic-bezier(.34,1.56,.64,1),stroke .4s}
+.rdr-ring-c{position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center}
+.rdr-rnum{font-size:2.8rem;font-weight:700;color:var(--bark);line-height:1}
+.rdr-rden{font-size:.62rem;color:var(--stone);letter-spacing:.06em}
+.rdr-rlvl{font-size:1.4rem;font-style:italic;font-weight:600;margin-bottom:.2rem}
+.rdr-rtag{font-size:.68rem;color:#444;letter-spacing:.07em;text-transform:uppercase}
+.rdr-rco{margin-top:.4rem;font-size:.68rem;color:#555}
 
-.bkd{background:white;border:1px solid var(--sand);border-radius:12px;padding:1.1rem 1.3rem;margin-bottom:1.2rem}
-.bkd-t{font-size:.62rem;letter-spacing:.12em;text-transform:uppercase;color:#555;margin-bottom:.9rem}
-.bd-r{margin-bottom:.7rem}
-.bd-l{display:flex;justify-content:space-between;align-items:center;font-size:.74rem;color:#1a1008;margin-bottom:4px}
-.bd-sc{font-weight:500}
-.bd-bw{height:5px;background:var(--sand);border-radius:3px;overflow:hidden}
-.bd-b{height:100%;width:0;border-radius:3px;transition:width 1.8s cubic-bezier(.34,1.56,.64,1)}
+.rdr-bkd{background:white;border:1px solid var(--sand);border-radius:10px;padding:.9rem 1.1rem;margin-bottom:1rem}
+.rdr-bkd-t{font-size:.6rem;letter-spacing:.12em;text-transform:uppercase;color:#666;margin-bottom:.7rem}
+.rdr-bd-r{margin-bottom:.55rem}
+.rdr-bd-l{display:flex;justify-content:space-between;align-items:center;font-size:.72rem;color:#1a1008;margin-bottom:3px}
+.rdr-bd-sc{font-weight:600}
+.rdr-bd-bw{height:5px;background:var(--sand);border-radius:3px;overflow:hidden}
+.rdr-bd-b{height:100%;width:0;border-radius:3px;transition:width 1.8s cubic-bezier(.34,1.56,.64,1)}
 
-.rc-t{font-size:.62rem;letter-spacing:.12em;text-transform:uppercase;color:#555;margin-bottom:.7rem}
-.ri{display:flex;gap:10px;align-items:flex-start;background:white;border:1px solid var(--sand);border-radius:10px;padding:.7rem 1rem;margin-bottom:.5rem;opacity:0;transform:translateY(6px);transition:opacity .4s,transform .4s}
-.ri.on{opacity:1;transform:translateY(0)}
-.rd{width:7px;height:7px;border-radius:50%;flex-shrink:0;margin-top:4px}
-.rt{font-size:.74rem;color:#1a1008;line-height:1.6}
-.rg2{font-size:.63rem;font-weight:500;margin-top:2px}
+.rdr-rc-t{font-size:.6rem;letter-spacing:.12em;text-transform:uppercase;color:#666;margin-bottom:.6rem}
+.rdr-ri{display:flex;gap:9px;align-items:flex-start;background:white;border:1px solid var(--sand);border-radius:8px;padding:.6rem .85rem;margin-bottom:.4rem;opacity:0;transform:translateY(5px);transition:opacity .4s,transform .4s}
+.rdr-ri.on{opacity:1;transform:translateY(0)}
+.rdr-rd{width:7px;height:7px;border-radius:50%;flex-shrink:0;margin-top:3px}
+.rdr-rt{font-size:.72rem;color:#1a1008;line-height:1.6}
+.rdr-rg2{font-size:.62rem;font-weight:600;margin-top:1px}
 
-.pdf-z{background:var(--sand);border:1px solid var(--stone);border-radius:12px;padding:1.1rem 1.3rem;margin-bottom:1.2rem;display:flex;align-items:center;gap:1rem}
-.pdf-ic{font-size:1.6rem;flex-shrink:0}
-.pdf-ti{font-family:var(--ff-d);font-size:1.05rem;font-weight:500;color:var(--bark);margin-bottom:2px}
-.pdf-de{font-size:.7rem;color:#444;line-height:1.5}
+.rdr-pdf-z{background:var(--sand);border:1px solid var(--stone);border-radius:10px;padding:1rem 1.1rem;margin-bottom:1rem;display:flex;align-items:center;gap:.9rem}
+.rdr-pdf-ic{font-size:1.4rem;flex-shrink:0}
+.rdr-pdf-ti{font-size:1rem;font-weight:600;color:var(--bark);margin-bottom:2px}
+.rdr-pdf-de{font-size:.68rem;color:#444;line-height:1.5}
 
-.cta{background:var(--bark);border-radius:12px;padding:1.1rem 1.3rem;display:flex;align-items:center;gap:1rem;margin-bottom:1.2rem}
-.cta-ti{font-family:var(--ff-d);font-size:1.05rem;font-weight:500;color:#e8b830;margin-bottom:3px}
-.cta-de{font-size:.68rem;color:rgba(250,247,240,.6);line-height:1.5}
-.cta-btn{margin-left:auto;background:var(--honey);color:white;font-family:var(--ff-b);font-size:.6rem;letter-spacing:.1em;text-transform:uppercase;padding:.5rem 1rem;border-radius:20px;white-space:nowrap;border:none;cursor:pointer;flex-shrink:0;box-shadow:0 2px 8px rgba(200,134,10,.3);transition:all .2s}
-.cta-btn:hover{background:var(--amber);transform:translateY(-1px)}
+.rdr-cta{background:var(--bark);border-radius:10px;padding:1rem 1.1rem;display:flex;align-items:center;gap:.9rem;margin-bottom:1rem}
+.rdr-cta-ti{font-size:.95rem;font-weight:600;color:#e8b830;margin-bottom:2px}
+.rdr-cta-de{font-size:.66rem;color:rgba(250,247,240,.6);line-height:1.5}
+.rdr-cta-btn{margin-left:auto;background:var(--honey);color:white;font-size:.58rem;letter-spacing:.1em;text-transform:uppercase;padding:.45rem .9rem;border-radius:18px;white-space:nowrap;border:none;cursor:pointer;flex-shrink:0;transition:all .18s}
+.rdr-cta-btn:hover{background:var(--amber);transform:translateY(-1px)}
 
-@media(max-width:600px){
-  .inner{padding:0 1rem}
-  .field-row,.site-grid{grid-template-columns:1fr}
+/* ── 2-col layout for result sections ── */
+.rdr-res-cols{display:grid;grid-template-columns:1fr 1fr;gap:1rem;margin-bottom:1rem}
+
+@media(max-width:700px){
+  .rdr-rg{grid-template-columns:1fr}
+  .rdr-field-row{grid-template-columns:1fr}
+  .rdr-site-grid{grid-template-columns:repeat(3,1fr)}
+  .rdr-res-cols{grid-template-columns:1fr}
 }
 </style>
 </head>
 <body>
-
 <div id="rdrw">
 
 <!-- PROGRESS -->
-<div class="prog" id="rdrProg">
-  <div class="inner">
-    <div class="prog-s"><div class="prog-f" id="pf0"></div></div>
-    <div class="prog-s"><div class="prog-f" id="pf1"></div></div>
-    <div class="prog-s"><div class="prog-f" id="pf2"></div></div>
-    <div class="prog-s"><div class="prog-f" id="pf3"></div></div>
-  </div>
+<div class="rdr-prog" id="rdrProg">
+  <div class="rdr-prog-s"><div class="rdr-prog-f" id="pf0"></div></div>
+  <div class="rdr-prog-s"><div class="rdr-prog-f" id="pf1"></div></div>
+  <div class="rdr-prog-s"><div class="rdr-prog-f" id="pf2"></div></div>
+  <div class="rdr-prog-s"><div class="rdr-prog-f" id="pf3"></div></div>
 </div>
 
 <!-- STEP 0 -->
-<div class="step on" id="s0">
- <div class="inner">
-  <div class="chip">Démarrage</div>
-  <div class="stitle">Votre <em>site</em></div>
-  <div class="ssub">Renseignez les informations de base pour personnaliser l'analyse.</div>
-  <div class="warn-box"><strong>⚠ Merci de renseigner et cocher tous les champs.</strong> Chaque réponse est prise en compte dans le calcul de votre Biodiversity Score.</div>
-  <div class="field"><label>Nom de l'entreprise</label><input type="text" id="co" placeholder="Heritage SA"/></div>
-  <div class="field"><label>Adresse complète du site (Rue / CP / Ville)</label><input type="text" id="addr" placeholder="Rue des Abeilles Espiègles 59999 Saint-Miellard-lez-Lys" oninput="rdrAI()"/></div>
-  <div class="field-row">
-    <div class="field"><label>Département</label>
+<div class="rdr-step on" id="s0">
+  <div class="rdr-chip">Démarrage</div>
+  <div class="rdr-stitle">Votre <em>site</em></div>
+  <div class="rdr-ssub">Renseignez les informations de base pour personnaliser l'analyse.</div>
+  <div class="rdr-warn"><strong>⚠ Merci de renseigner et cocher tous les champs.</strong> Chaque réponse est prise en compte dans le calcul de votre Biodiversity Score.</div>
+  <div class="rdr-field-row">
+    <div class="rdr-field"><label>Nom de l'entreprise</label><input type="text" id="co" placeholder="Heritage SA"/></div>
+    <div class="rdr-field"><label>Adresse complète (Rue / CP / Ville)</label><input type="text" id="addr" placeholder="Rue des Abeilles 59999 Comines" oninput="rdrAI()"/></div>
+  </div>
+  <div class="rdr-field-row">
+    <div class="rdr-field"><label>Département</label>
       <select id="dept" onchange="rdrZC()">
         <option value="">— Département —</option>
         <option value="59">59 · Nord</option><option value="62">62 · Pas-de-Calais</option>
@@ -177,7 +177,7 @@ html,body{background:var(--cream);font-family:var(--ff-b);font-size:15px;color:#
         <option value="autre">Autre</option>
       </select>
     </div>
-    <div class="field"><label>Zone géographique</label>
+    <div class="rdr-field"><label>Zone géographique</label>
       <select id="zone" onchange="rdrZC()">
         <option value="">— Zone —</option>
         <option value="urban">Urbain dense</option><option value="periurban">Péri-urbain</option>
@@ -186,253 +186,264 @@ html,body{background:var(--cream);font-family:var(--ff-b);font-size:15px;color:#
       </select>
     </div>
   </div>
-  <div class="field"><label>Surface du site</label>
-    <select id="surf">
-      <option value="xs">Moins de 1 000 m²</option><option value="s">1 000 – 5 000 m²</option>
-      <option value="m" selected>5 000 – 20 000 m²</option><option value="l">Plus de 20 000 m²</option>
-    </select>
-  </div>
-  <div class="field"><label>Type de site</label>
-    <div class="site-grid">
-      <div class="sc on" data-s="ind" onclick="rdrSC(this)"><div class="sc-icon">🏭</div><div class="sc-name">Industriel</div></div>
-      <div class="sc" data-s="log" onclick="rdrSC(this)"><div class="sc-icon">📦</div><div class="sc-name">Logistique</div></div>
-      <div class="sc" data-s="bur" onclick="rdrSC(this)"><div class="sc-icon">🏢</div><div class="sc-name">Tertiaire</div></div>
-      <div class="sc" data-s="col" onclick="rdrSC(this)"><div class="sc-icon">🏛️</div><div class="sc-name">Collectivité</div></div>
-      <div class="sc" data-s="com" onclick="rdrSC(this)"><div class="sc-icon">🛒</div><div class="sc-name">Commerce</div></div>
-      <div class="sc" data-s="aut" onclick="rdrSC(this)"><div class="sc-icon">🔧</div><div class="sc-name">Autre</div></div>
+  <div class="rdr-field-row">
+    <div class="rdr-field"><label>Surface du site</label>
+      <select id="surf">
+        <option value="xs">Moins de 1 000 m²</option><option value="s">1 000 – 5 000 m²</option>
+        <option value="m" selected>5 000 – 20 000 m²</option><option value="l">Plus de 20 000 m²</option>
+      </select>
+    </div>
+    <div class="rdr-field"><label>Type de site</label>
+      <div class="rdr-site-grid">
+        <div class="rdr-sc on" data-s="ind" onclick="rdrSC(this)"><div class="rdr-sc-icon">🏭</div><div class="rdr-sc-name">Industriel</div></div>
+        <div class="rdr-sc" data-s="log" onclick="rdrSC(this)"><div class="rdr-sc-icon">📦</div><div class="rdr-sc-name">Logistique</div></div>
+        <div class="rdr-sc" data-s="bur" onclick="rdrSC(this)"><div class="rdr-sc-icon">🏢</div><div class="rdr-sc-name">Tertiaire</div></div>
+        <div class="rdr-sc" data-s="col" onclick="rdrSC(this)"><div class="rdr-sc-icon">🏛️</div><div class="rdr-sc-name">Collectivité</div></div>
+        <div class="rdr-sc" data-s="com" onclick="rdrSC(this)"><div class="rdr-sc-icon">🛒</div><div class="rdr-sc-name">Commerce</div></div>
+        <div class="rdr-sc" data-s="aut" onclick="rdrSC(this)"><div class="rdr-sc-icon">🔧</div><div class="rdr-sc-name">Autre</div></div>
+      </div>
     </div>
   </div>
-  <div class="btn-row"><span style="font-size:.62rem;color:#888">Aucune donnée transmise</span><button class="btn btn-p" onclick="rdrGo(1)">Commencer l'analyse →</button></div>
- </div>
+  <div class="rdr-btn-row"><span style="font-size:.62rem;color:#999">Aucune donnée transmise</span><button class="rdr-btn rdr-btn-p" onclick="rdrGo(1)">Commencer l'analyse →</button></div>
 </div>
 
 <!-- STEP 1 -->
-<div class="step" id="s1">
- <div class="inner">
-  <div class="chip">Section 1 / 4</div>
-  <div class="stitle">Environnement & <em>végétalisation</em></div>
-  <div class="ssub">30 points · Espaces verts, plantes mellifères, pratiques phytosanitaires</div>
-  <div class="af-bar hidden" id="af1"><div style="font-size:.95rem;flex-shrink:0;margin-top:1px">🔍</div><div><div class="af-title">Données pré-remplies (sources officielles)</div><div class="af-desc" id="af1d">—</div><div class="af-src">Modifiables · Sources : CORINE Land Cover · RPG PAC · IGN</div></div></div>
-  <div class="field"><label>1.1 · Espaces verts sur le site <span class="src-b" id="sb11">Source</span></label>
-    <div class="rg" id="rg11">
-      <div class="ro" data-v="0" onclick="rdrR('rg11',this)"><div class="rc"></div><span class="rl">Aucun</span><span class="rp">0 pt</span></div>
-      <div class="ro" data-v="2" onclick="rdrR('rg11',this)"><div class="rc"></div><span class="rl">Quelques zones limitées</span><span class="rp">2 pts</span></div>
-      <div class="ro" data-v="4" onclick="rdrR('rg11',this)"><div class="rc"></div><span class="rl">Espaces verts modérés</span><span class="rp">4 pts</span></div>
-      <div class="ro" data-v="6" onclick="rdrR('rg11',this)"><div class="rc"></div><span class="rl">Nombreux espaces végétalisés</span><span class="rp">6 pts</span></div>
+<div class="rdr-step" id="s1">
+  <div class="rdr-chip">Section 1 / 4</div>
+  <div class="rdr-stitle">Environnement & <em>végétalisation</em></div>
+  <div class="rdr-ssub">30 points · Espaces verts, plantes mellifères, pratiques phytosanitaires</div>
+  <div class="rdr-af hidden" id="af1"><div style="font-size:.9rem;flex-shrink:0;margin-top:1px">🔍</div><div><div class="rdr-af-title">Données pré-remplies (sources officielles)</div><div class="rdr-af-desc" id="af1d">—</div><div class="rdr-af-src">Modifiables · Sources : CORINE Land Cover · RPG PAC · IGN</div></div></div>
+  <div class="rdr-field-row">
+    <div class="rdr-field"><label>1.1 · Espaces verts sur le site <span class="rdr-src-b" id="sb11">Source</span></label>
+      <div class="rdr-rg" id="rg11">
+        <div class="rdr-ro" data-v="0" onclick="rdrR('rg11',this)"><div class="rdr-rc"></div><span class="rdr-rl">Aucun</span><span class="rdr-rp">0 pt</span></div>
+        <div class="rdr-ro" data-v="2" onclick="rdrR('rg11',this)"><div class="rdr-rc"></div><span class="rdr-rl">Quelques zones limitées</span><span class="rdr-rp">2 pts</span></div>
+        <div class="rdr-ro" data-v="4" onclick="rdrR('rg11',this)"><div class="rdr-rc"></div><span class="rdr-rl">Espaces verts modérés</span><span class="rdr-rp">4 pts</span></div>
+        <div class="rdr-ro" data-v="6" onclick="rdrR('rg11',this)"><div class="rdr-rc"></div><span class="rdr-rl">Nombreux espaces végétalisés</span><span class="rdr-rp">6 pts</span></div>
+      </div>
+    </div>
+    <div class="rdr-field"><label>1.2 · Plantes mellifères <span class="rdr-src-b" id="sb12">Source</span></label>
+      <div class="rdr-rg" id="rg12">
+        <div class="rdr-ro" data-v="0" onclick="rdrR('rg12',this)"><div class="rdr-rc"></div><span class="rdr-rl">Aucune</span><span class="rdr-rp">0 pt</span></div>
+        <div class="rdr-ro" data-v="2" onclick="rdrR('rg12',this)"><div class="rdr-rc"></div><span class="rdr-rl">Quelques plantations</span><span class="rdr-rp">2 pts</span></div>
+        <div class="rdr-ro" data-v="4" onclick="rdrR('rg12',this)"><div class="rdr-rc"></div><span class="rdr-rl">Présence régulière</span><span class="rdr-rp">4 pts</span></div>
+        <div class="rdr-ro" data-v="6" onclick="rdrR('rg12',this)"><div class="rdr-rc"></div><span class="rdr-rl">Forte présence mellifère</span><span class="rdr-rp">6 pts</span></div>
+      </div>
     </div>
   </div>
-  <div class="field"><label>1.2 · Plantes mellifères <span class="src-b" id="sb12">Source</span></label>
-    <div class="rg" id="rg12">
-      <div class="ro" data-v="0" onclick="rdrR('rg12',this)"><div class="rc"></div><span class="rl">Aucune</span><span class="rp">0 pt</span></div>
-      <div class="ro" data-v="2" onclick="rdrR('rg12',this)"><div class="rc"></div><span class="rl">Quelques plantations</span><span class="rp">2 pts</span></div>
-      <div class="ro" data-v="4" onclick="rdrR('rg12',this)"><div class="rc"></div><span class="rl">Présence régulière</span><span class="rp">4 pts</span></div>
-      <div class="ro" data-v="6" onclick="rdrR('rg12',this)"><div class="rc"></div><span class="rl">Forte présence mellifère</span><span class="rp">6 pts</span></div>
+  <div class="rdr-field-row">
+    <div class="rdr-field"><label>1.3 · Actions biodiversité sur le site</label>
+      <div class="rdr-rg" id="rg13">
+        <div class="rdr-ro" data-v="0" onclick="rdrR('rg13',this)"><div class="rdr-rc"></div><span class="rdr-rl">Aucune</span><span class="rdr-rp">0 pt</span></div>
+        <div class="rdr-ro" data-v="2" onclick="rdrR('rg13',this)"><div class="rdr-rc"></div><span class="rdr-rl">Actions ponctuelles</span><span class="rdr-rp">2 pts</span></div>
+        <div class="rdr-ro" data-v="4" onclick="rdrR('rg13',this)"><div class="rdr-rc"></div><span class="rdr-rl">Démarche partielle</span><span class="rdr-rp">4 pts</span></div>
+        <div class="rdr-ro" data-v="6" onclick="rdrR('rg13',this)"><div class="rdr-rc"></div><span class="rdr-rl">Démarche structurée</span><span class="rdr-rp">6 pts</span></div>
+      </div>
+    </div>
+    <div class="rdr-field"><label>1.4 · Arbres, haies ou prairies <span class="rdr-src-b" id="sb14">Source</span></label>
+      <div class="rdr-rg" id="rg14">
+        <div class="rdr-ro" data-v="0" onclick="rdrR('rg14',this)"><div class="rdr-rc"></div><span class="rdr-rl">Aucune</span><span class="rdr-rp">0 pt</span></div>
+        <div class="rdr-ro" data-v="2" onclick="rdrR('rg14',this)"><div class="rdr-rc"></div><span class="rdr-rl">Faible présence</span><span class="rdr-rp">2 pts</span></div>
+        <div class="rdr-ro" data-v="4" onclick="rdrR('rg14',this)"><div class="rdr-rc"></div><span class="rdr-rl">Présence moyenne</span><span class="rdr-rp">4 pts</span></div>
+        <div class="rdr-ro" data-v="6" onclick="rdrR('rg14',this)"><div class="rdr-rc"></div><span class="rdr-rl">Présence importante</span><span class="rdr-rp">6 pts</span></div>
+      </div>
     </div>
   </div>
-  <div class="field"><label>1.3 · Actions biodiversité sur le site</label>
-    <div class="rg" id="rg13">
-      <div class="ro" data-v="0" onclick="rdrR('rg13',this)"><div class="rc"></div><span class="rl">Aucune</span><span class="rp">0 pt</span></div>
-      <div class="ro" data-v="2" onclick="rdrR('rg13',this)"><div class="rc"></div><span class="rl">Quelques actions ponctuelles</span><span class="rp">2 pts</span></div>
-      <div class="ro" data-v="4" onclick="rdrR('rg13',this)"><div class="rc"></div><span class="rl">Démarche partielle</span><span class="rp">4 pts</span></div>
-      <div class="ro" data-v="6" onclick="rdrR('rg13',this)"><div class="rc"></div><span class="rl">Démarche structurée</span><span class="rp">6 pts</span></div>
+  <div class="rdr-field"><label>1.5 · Utilisation de pesticides <span class="rdr-src-b" id="sb15">Source</span></label>
+    <div class="rdr-rg" id="rg15">
+      <div class="rdr-ro" data-v="0" onclick="rdrR('rg15',this)"><div class="rdr-rc"></div><span class="rdr-rl">Fréquente</span><span class="rdr-rp">0 pt</span></div>
+      <div class="rdr-ro" data-v="2" onclick="rdrR('rg15',this)"><div class="rdr-rc"></div><span class="rdr-rl">Occasionnelle</span><span class="rdr-rp">2 pts</span></div>
+      <div class="rdr-ro" data-v="4" onclick="rdrR('rg15',this)"><div class="rdr-rc"></div><span class="rdr-rl">Rare</span><span class="rdr-rp">4 pts</span></div>
+      <div class="rdr-ro" data-v="6" onclick="rdrR('rg15',this)"><div class="rdr-rc"></div><span class="rdr-rl">Aucune utilisation</span><span class="rdr-rp">6 pts</span></div>
     </div>
   </div>
-  <div class="field"><label>1.4 · Arbres, haies ou prairies <span class="src-b" id="sb14">Source</span></label>
-    <div class="rg" id="rg14">
-      <div class="ro" data-v="0" onclick="rdrR('rg14',this)"><div class="rc"></div><span class="rl">Aucune</span><span class="rp">0 pt</span></div>
-      <div class="ro" data-v="2" onclick="rdrR('rg14',this)"><div class="rc"></div><span class="rl">Faible présence</span><span class="rp">2 pts</span></div>
-      <div class="ro" data-v="4" onclick="rdrR('rg14',this)"><div class="rc"></div><span class="rl">Présence moyenne</span><span class="rp">4 pts</span></div>
-      <div class="ro" data-v="6" onclick="rdrR('rg14',this)"><div class="rc"></div><span class="rl">Présence importante</span><span class="rp">6 pts</span></div>
-    </div>
-  </div>
-  <div class="field"><label>1.5 · Utilisation de pesticides <span class="src-b" id="sb15">Source</span></label>
-    <div class="rg" id="rg15">
-      <div class="ro" data-v="0" onclick="rdrR('rg15',this)"><div class="rc"></div><span class="rl">Fréquente</span><span class="rp">0 pt</span></div>
-      <div class="ro" data-v="2" onclick="rdrR('rg15',this)"><div class="rc"></div><span class="rl">Occasionnelle</span><span class="rp">2 pts</span></div>
-      <div class="ro" data-v="4" onclick="rdrR('rg15',this)"><div class="rc"></div><span class="rl">Rare</span><span class="rp">4 pts</span></div>
-      <div class="ro" data-v="6" onclick="rdrR('rg15',this)"><div class="rc"></div><span class="rl">Aucune utilisation</span><span class="rp">6 pts</span></div>
-    </div>
-  </div>
-  <div class="btn-row"><button class="btn btn-s" onclick="rdrGo(0)">← Retour</button><button class="btn btn-p" onclick="rdrGo(2)">Suivant →</button></div>
- </div>
+  <div class="rdr-btn-row"><button class="rdr-btn rdr-btn-s" onclick="rdrGo(0)">← Retour</button><button class="rdr-btn rdr-btn-p" onclick="rdrGo(2)">Suivant →</button></div>
 </div>
 
 <!-- STEP 2 -->
-<div class="step" id="s2">
- <div class="inner">
-  <div class="chip">Section 2 / 4</div>
-  <div class="stitle">Activité <em>pollinisatrice</em></div>
-  <div class="ssub">25 points · Ruches, diversité florale, mortalité, environnement proche</div>
-  <div class="field"><label>2.1a · Ruches présentes sur votre site ?</label>
-    <div class="rg" id="rg21a">
-      <div class="ro" data-v="non" onclick="rdrR('rg21a',this);rdrTR('non')"><div class="rc"></div><span class="rl">Non, aucune ruche</span><span class="rp">0 pt</span></div>
-      <div class="ro" data-v="rdr" onclick="rdrR('rg21a',this);rdrTR('oui')"><div class="rc"></div><span class="rl">Oui — via <strong>Les Reines du Rucher</strong></span><span class="rp">5 pts</span></div>
-      <div class="ro" data-v="aut" onclick="rdrR('rg21a',this);rdrTR('oui')"><div class="rc"></div><span class="rl">Oui — via un autre prestataire</span><span class="rp">4 pts</span></div>
-      <div class="ro" data-v="int" onclick="rdrR('rg21a',this);rdrTR('oui')"><div class="rc"></div><span class="rl">Oui — ruches internes / personnelles</span><span class="rp">3 pts</span></div>
+<div class="rdr-step" id="s2">
+  <div class="rdr-chip">Section 2 / 4</div>
+  <div class="rdr-stitle">Activité <em>pollinisatrice</em></div>
+  <div class="rdr-ssub">25 points · Ruches, diversité florale, mortalité, environnement proche</div>
+  <div class="rdr-field"><label>2.1a · Ruches présentes sur votre site ?</label>
+    <div class="rdr-rg" id="rg21a">
+      <div class="rdr-ro" data-v="non" onclick="rdrR('rg21a',this);rdrTR('non')"><div class="rdr-rc"></div><span class="rdr-rl">Non, aucune ruche</span><span class="rdr-rp">0 pt</span></div>
+      <div class="rdr-ro" data-v="rdr" onclick="rdrR('rg21a',this);rdrTR('oui')"><div class="rdr-rc"></div><span class="rdr-rl">Oui — via <strong>Les Reines du Rucher</strong></span><span class="rdr-rp">5 pts</span></div>
+      <div class="rdr-ro" data-v="aut" onclick="rdrR('rg21a',this);rdrTR('oui')"><div class="rdr-rc"></div><span class="rdr-rl">Oui — via un autre prestataire</span><span class="rdr-rp">4 pts</span></div>
+      <div class="rdr-ro" data-v="int" onclick="rdrR('rg21a',this);rdrTR('oui')"><div class="rdr-rc"></div><span class="rdr-rl">Ruches internes / personnelles</span><span class="rdr-rp">3 pts</span></div>
     </div>
   </div>
-  <div class="field" id="q21b" style="display:none"><label>2.1b · Combien de ruches ?</label>
-    <div class="slider-wrap">
-      <div class="slider-row"><input type="range" id="nbr" min="1" max="10" value="1" oninput="rdrRU()"><div><div class="snum" id="rnm">1</div><div class="ssub2">ruche(s)</div></div></div>
-      <div class="slbls"><span>1</span><span>2–3</span><span>4–6</span><span>7–8</span><span>9–10</span></div>
-      <div class="rpts" id="rpts">Score bonus : 0 pt</div>
+  <div class="rdr-field" id="q21b" style="display:none"><label>2.1b · Combien de ruches ?</label>
+    <div class="rdr-slider-wrap">
+      <div class="rdr-slider-row"><input type="range" id="nbr" min="1" max="10" value="1" oninput="rdrRU()"><div><div class="rdr-snum" id="rnm">1</div><div class="rdr-ssub2">ruche(s)</div></div></div>
+      <div class="rdr-slbls"><span>1</span><span>2–3</span><span>4–6</span><span>7–8</span><span>9–10</span></div>
+      <div class="rdr-rpts" id="rpts">Score bonus : 0 pt</div>
     </div>
   </div>
-  <div class="field"><label>2.2 · Activité des ruches toute la saison</label>
-    <div class="rg" id="rg22">
-      <div class="ro" data-v="1" onclick="rdrR('rg22',this)"><div class="rc"></div><span class="rl">Faiblement actives</span><span class="rp">1 pt</span></div>
-      <div class="ro" data-v="3" onclick="rdrR('rg22',this)"><div class="rc"></div><span class="rl">Moyennement actives</span><span class="rp">3 pts</span></div>
-      <div class="ro" data-v="4" onclick="rdrR('rg22',this)"><div class="rc"></div><span class="rl">Activité régulière</span><span class="rp">4 pts</span></div>
-      <div class="ro" data-v="5" onclick="rdrR('rg22',this)"><div class="rc"></div><span class="rl">Activité forte et stable</span><span class="rp">5 pts</span></div>
+  <div class="rdr-field-row">
+    <div class="rdr-field"><label>2.2 · Activité des ruches toute la saison</label>
+      <div class="rdr-rg" id="rg22">
+        <div class="rdr-ro" data-v="1" onclick="rdrR('rg22',this)"><div class="rdr-rc"></div><span class="rdr-rl">Faiblement actives</span><span class="rdr-rp">1 pt</span></div>
+        <div class="rdr-ro" data-v="3" onclick="rdrR('rg22',this)"><div class="rdr-rc"></div><span class="rdr-rl">Moyennement actives</span><span class="rdr-rp">3 pts</span></div>
+        <div class="rdr-ro" data-v="4" onclick="rdrR('rg22',this)"><div class="rdr-rc"></div><span class="rdr-rl">Activité régulière</span><span class="rdr-rp">4 pts</span></div>
+        <div class="rdr-ro" data-v="5" onclick="rdrR('rg22',this)"><div class="rdr-rc"></div><span class="rdr-rl">Activité forte et stable</span><span class="rdr-rp">5 pts</span></div>
+      </div>
+    </div>
+    <div class="rdr-field"><label>2.3 · Diversité florale <span class="rdr-src-b" id="sb23">Source</span></label>
+      <div class="rdr-rg" id="rg23">
+        <div class="rdr-ro" data-v="1" onclick="rdrR('rg23',this)"><div class="rdr-rc"></div><span class="rdr-rl">Très faible</span><span class="rdr-rp">1 pt</span></div>
+        <div class="rdr-ro" data-v="3" onclick="rdrR('rg23',this)"><div class="rdr-rc"></div><span class="rdr-rl">Moyenne</span><span class="rdr-rp">3 pts</span></div>
+        <div class="rdr-ro" data-v="4" onclick="rdrR('rg23',this)"><div class="rdr-rc"></div><span class="rdr-rl">Bonne</span><span class="rdr-rp">4 pts</span></div>
+        <div class="rdr-ro" data-v="5" onclick="rdrR('rg23',this)"><div class="rdr-rc"></div><span class="rdr-rl">Très riche</span><span class="rdr-rp">5 pts</span></div>
+      </div>
     </div>
   </div>
-  <div class="field"><label>2.3 · Diversité florale <span class="src-b" id="sb23">Source</span></label>
-    <div class="rg" id="rg23">
-      <div class="ro" data-v="1" onclick="rdrR('rg23',this)"><div class="rc"></div><span class="rl">Très faible</span><span class="rp">1 pt</span></div>
-      <div class="ro" data-v="3" onclick="rdrR('rg23',this)"><div class="rc"></div><span class="rl">Moyenne</span><span class="rp">3 pts</span></div>
-      <div class="ro" data-v="4" onclick="rdrR('rg23',this)"><div class="rc"></div><span class="rl">Bonne</span><span class="rp">4 pts</span></div>
-      <div class="ro" data-v="5" onclick="rdrR('rg23',this)"><div class="rc"></div><span class="rl">Très riche</span><span class="rp">5 pts</span></div>
+  <div class="rdr-field-row">
+    <div class="rdr-field"><label>2.4 · Environnement proche <span class="rdr-src-b" id="sb24">Source</span></label>
+      <div class="rdr-rg" id="rg24">
+        <div class="rdr-ro" data-v="1" onclick="rdrR('rg24',this)"><div class="rdr-rc"></div><span class="rdr-rl">Zone très urbaine</span><span class="rdr-rp">1 pt</span></div>
+        <div class="rdr-ro" data-v="2" onclick="rdrR('rg24',this)"><div class="rdr-rc"></div><span class="rdr-rl">Zone mixte</span><span class="rdr-rp">2 pts</span></div>
+        <div class="rdr-ro" data-v="4" onclick="rdrR('rg24',this)"><div class="rdr-rc"></div><span class="rdr-rl">Espaces agricoles</span><span class="rdr-rp">4 pts</span></div>
+        <div class="rdr-ro" data-v="5" onclick="rdrR('rg24',this)"><div class="rdr-rc"></div><span class="rdr-rl">Espaces naturels / forestiers</span><span class="rdr-rp">5 pts</span></div>
+      </div>
+    </div>
+    <div class="rdr-field"><label>2.5 · Mortalités inhabituelles d'abeilles</label>
+      <div class="rdr-rg" id="rg25">
+        <div class="rdr-ro" data-v="0" onclick="rdrR('rg25',this)"><div class="rdr-rc"></div><span class="rdr-rl">Oui régulièrement</span><span class="rdr-rp">0 pt</span></div>
+        <div class="rdr-ro" data-v="2" onclick="rdrR('rg25',this)"><div class="rdr-rc"></div><span class="rdr-rl">Occasionnellement</span><span class="rdr-rp">2 pts</span></div>
+        <div class="rdr-ro" data-v="4" onclick="rdrR('rg25',this)"><div class="rdr-rc"></div><span class="rdr-rl">Rarement</span><span class="rdr-rp">4 pts</span></div>
+        <div class="rdr-ro" data-v="5" onclick="rdrR('rg25',this)"><div class="rdr-rc"></div><span class="rdr-rl">Jamais</span><span class="rdr-rp">5 pts</span></div>
+      </div>
     </div>
   </div>
-  <div class="field"><label>2.4 · Environnement proche <span class="src-b" id="sb24">Source</span></label>
-    <div class="rg" id="rg24">
-      <div class="ro" data-v="1" onclick="rdrR('rg24',this)"><div class="rc"></div><span class="rl">Zone très urbaine</span><span class="rp">1 pt</span></div>
-      <div class="ro" data-v="2" onclick="rdrR('rg24',this)"><div class="rc"></div><span class="rl">Zone mixte</span><span class="rp">2 pts</span></div>
-      <div class="ro" data-v="4" onclick="rdrR('rg24',this)"><div class="rc"></div><span class="rl">Espaces agricoles</span><span class="rp">4 pts</span></div>
-      <div class="ro" data-v="5" onclick="rdrR('rg24',this)"><div class="rc"></div><span class="rl">Espaces naturels / forestiers</span><span class="rp">5 pts</span></div>
-    </div>
-  </div>
-  <div class="field"><label>2.5 · Mortalités inhabituelles d'abeilles</label>
-    <div class="rg" id="rg25">
-      <div class="ro" data-v="0" onclick="rdrR('rg25',this)"><div class="rc"></div><span class="rl">Oui régulièrement</span><span class="rp">0 pt</span></div>
-      <div class="ro" data-v="2" onclick="rdrR('rg25',this)"><div class="rc"></div><span class="rl">Occasionnellement</span><span class="rp">2 pts</span></div>
-      <div class="ro" data-v="4" onclick="rdrR('rg25',this)"><div class="rc"></div><span class="rl">Rarement</span><span class="rp">4 pts</span></div>
-      <div class="ro" data-v="5" onclick="rdrR('rg25',this)"><div class="rc"></div><span class="rl">Jamais</span><span class="rp">5 pts</span></div>
-    </div>
-  </div>
-  <div class="btn-row"><button class="btn btn-s" onclick="rdrGo(1)">← Retour</button><button class="btn btn-p" onclick="rdrGo(3)">Suivant →</button></div>
- </div>
+  <div class="rdr-btn-row"><button class="rdr-btn rdr-btn-s" onclick="rdrGo(1)">← Retour</button><button class="rdr-btn rdr-btn-p" onclick="rdrGo(3)">Suivant →</button></div>
 </div>
 
 <!-- STEP 3 -->
-<div class="step" id="s3">
- <div class="inner">
-  <div class="chip">Section 3 / 4</div>
-  <div class="stitle">Engagement <em>RSE</em></div>
-  <div class="ssub">20 points · Actions, participation, communication, animations</div>
-  <div class="field"><label>3.1 · Actions biodiversité organisées</label>
-    <div class="rg" id="rg31">
-      <div class="ro" data-v="0" onclick="rdrR('rg31',this)"><div class="rc"></div><span class="rl">Aucune</span><span class="rp">0 pt</span></div>
-      <div class="ro" data-v="2" onclick="rdrR('rg31',this)"><div class="rc"></div><span class="rl">Occasionnelles</span><span class="rp">2 pts</span></div>
-      <div class="ro" data-v="4" onclick="rdrR('rg31',this)"><div class="rc"></div><span class="rl">Régulières</span><span class="rp">4 pts</span></div>
-      <div class="ro" data-v="5" onclick="rdrR('rg31',this)"><div class="rc"></div><span class="rl">Programme annuel structuré</span><span class="rp">5 pts</span></div>
+<div class="rdr-step" id="s3">
+  <div class="rdr-chip">Section 3 / 4</div>
+  <div class="rdr-stitle">Engagement <em>RSE</em></div>
+  <div class="rdr-ssub">20 points · Actions, participation, communication, animations</div>
+  <div class="rdr-field-row">
+    <div class="rdr-field"><label>3.1 · Actions biodiversité organisées</label>
+      <div class="rdr-rg" id="rg31">
+        <div class="rdr-ro" data-v="0" onclick="rdrR('rg31',this)"><div class="rdr-rc"></div><span class="rdr-rl">Aucune</span><span class="rdr-rp">0 pt</span></div>
+        <div class="rdr-ro" data-v="2" onclick="rdrR('rg31',this)"><div class="rdr-rc"></div><span class="rdr-rl">Occasionnelles</span><span class="rdr-rp">2 pts</span></div>
+        <div class="rdr-ro" data-v="4" onclick="rdrR('rg31',this)"><div class="rdr-rc"></div><span class="rdr-rl">Régulières</span><span class="rdr-rp">4 pts</span></div>
+        <div class="rdr-ro" data-v="5" onclick="rdrR('rg31',this)"><div class="rdr-rc"></div><span class="rdr-rl">Programme annuel structuré</span><span class="rdr-rp">5 pts</span></div>
+      </div>
+    </div>
+    <div class="rdr-field"><label>3.2 · Participation des collaborateurs</label>
+      <div class="rdr-rg" id="rg32">
+        <div class="rdr-ro" data-v="1" onclick="rdrR('rg32',this)"><div class="rdr-rc"></div><span class="rdr-rl">Très peu</span><span class="rdr-rp">1 pt</span></div>
+        <div class="rdr-ro" data-v="2" onclick="rdrR('rg32',this)"><div class="rdr-rc"></div><span class="rdr-rl">Quelques participants</span><span class="rdr-rp">2 pts</span></div>
+        <div class="rdr-ro" data-v="4" onclick="rdrR('rg32',this)"><div class="rdr-rc"></div><span class="rdr-rl">Participation correcte</span><span class="rdr-rp">4 pts</span></div>
+        <div class="rdr-ro" data-v="5" onclick="rdrR('rg32',this)"><div class="rdr-rc"></div><span class="rdr-rl">Forte mobilisation</span><span class="rdr-rp">5 pts</span></div>
+      </div>
     </div>
   </div>
-  <div class="field"><label>3.2 · Participation des collaborateurs</label>
-    <div class="rg" id="rg32">
-      <div class="ro" data-v="1" onclick="rdrR('rg32',this)"><div class="rc"></div><span class="rl">Très peu</span><span class="rp">1 pt</span></div>
-      <div class="ro" data-v="2" onclick="rdrR('rg32',this)"><div class="rc"></div><span class="rl">Quelques participants</span><span class="rp">2 pts</span></div>
-      <div class="ro" data-v="4" onclick="rdrR('rg32',this)"><div class="rc"></div><span class="rl">Participation correcte</span><span class="rp">4 pts</span></div>
-      <div class="ro" data-v="5" onclick="rdrR('rg32',this)"><div class="rc"></div><span class="rl">Forte mobilisation</span><span class="rp">5 pts</span></div>
+  <div class="rdr-field-row">
+    <div class="rdr-field"><label>3.3 · Communication RSE de l'entreprise</label>
+      <div class="rdr-rg" id="rg33">
+        <div class="rdr-ro" data-v="0" onclick="rdrR('rg33',this)"><div class="rdr-rc"></div><span class="rdr-rl">Jamais</span><span class="rdr-rp">0 pt</span></div>
+        <div class="rdr-ro" data-v="2" onclick="rdrR('rg33',this)"><div class="rdr-rc"></div><span class="rdr-rl">Occasionnellement</span><span class="rdr-rp">2 pts</span></div>
+        <div class="rdr-ro" data-v="4" onclick="rdrR('rg33',this)"><div class="rdr-rc"></div><span class="rdr-rl">Régulièrement</span><span class="rdr-rp">4 pts</span></div>
+        <div class="rdr-ro" data-v="5" onclick="rdrR('rg33',this)"><div class="rdr-rc"></div><span class="rdr-rl">Communication active et structurée</span><span class="rdr-rp">5 pts</span></div>
+      </div>
+    </div>
+    <div class="rdr-field"><label>3.4 · Ateliers / animations nature</label>
+      <div class="rdr-rg" id="rg34">
+        <div class="rdr-ro" data-v="0" onclick="rdrR('rg34',this)"><div class="rdr-rc"></div><span class="rdr-rl">Aucun</span><span class="rdr-rp">0 pt</span></div>
+        <div class="rdr-ro" data-v="2" onclick="rdrR('rg34',this)"><div class="rdr-rc"></div><span class="rdr-rl">1 par an</span><span class="rdr-rp">2 pts</span></div>
+        <div class="rdr-ro" data-v="4" onclick="rdrR('rg34',this)"><div class="rdr-rc"></div><span class="rdr-rl">Plusieurs par an</span><span class="rdr-rp">4 pts</span></div>
+        <div class="rdr-ro" data-v="5" onclick="rdrR('rg34',this)"><div class="rdr-rc"></div><span class="rdr-rl">Programme récurrent</span><span class="rdr-rp">5 pts</span></div>
+      </div>
     </div>
   </div>
-  <div class="field"><label>3.3 · Communication RSE de l'entreprise</label>
-    <div class="rg" id="rg33">
-      <div class="ro" data-v="0" onclick="rdrR('rg33',this)"><div class="rc"></div><span class="rl">Jamais</span><span class="rp">0 pt</span></div>
-      <div class="ro" data-v="2" onclick="rdrR('rg33',this)"><div class="rc"></div><span class="rl">Occasionnellement</span><span class="rp">2 pts</span></div>
-      <div class="ro" data-v="4" onclick="rdrR('rg33',this)"><div class="rc"></div><span class="rl">Régulièrement</span><span class="rp">4 pts</span></div>
-      <div class="ro" data-v="5" onclick="rdrR('rg33',this)"><div class="rc"></div><span class="rl">Communication active et structurée</span><span class="rp">5 pts</span></div>
-    </div>
-  </div>
-  <div class="field"><label>3.4 · Ateliers / animations nature</label>
-    <div class="rg" id="rg34">
-      <div class="ro" data-v="0" onclick="rdrR('rg34',this)"><div class="rc"></div><span class="rl">Aucun</span><span class="rp">0 pt</span></div>
-      <div class="ro" data-v="2" onclick="rdrR('rg34',this)"><div class="rc"></div><span class="rl">1 par an</span><span class="rp">2 pts</span></div>
-      <div class="ro" data-v="4" onclick="rdrR('rg34',this)"><div class="rc"></div><span class="rl">Plusieurs par an</span><span class="rp">4 pts</span></div>
-      <div class="ro" data-v="5" onclick="rdrR('rg34',this)"><div class="rc"></div><span class="rl">Programme récurrent</span><span class="rp">5 pts</span></div>
-    </div>
-  </div>
-  <div class="btn-row"><button class="btn btn-s" onclick="rdrGo(2)">← Retour</button><button class="btn btn-p" onclick="rdrGo(4)">Suivant →</button></div>
- </div>
+  <div class="rdr-btn-row"><button class="rdr-btn rdr-btn-s" onclick="rdrGo(2)">← Retour</button><button class="rdr-btn rdr-btn-p" onclick="rdrGo(4)">Suivant →</button></div>
 </div>
 
 <!-- STEP 4 -->
-<div class="step" id="s4">
- <div class="inner">
-  <div class="chip">Section 4 / 4</div>
-  <div class="stitle">Stratégie <em>ESG</em> & gouvernance</div>
-  <div class="ssub">25 points · Stratégie RSE, KPI, reporting, objectifs environnementaux</div>
-  <div class="field"><label>4.1 · Stratégie RSE de l'entreprise</label>
-    <div class="rg" id="rg41">
-      <div class="ro" data-v="0" onclick="rdrR('rg41',this)"><div class="rc"></div><span class="rl">Aucune</span><span class="rp">0 pt</span></div>
-      <div class="ro" data-v="2" onclick="rdrR('rg41',this)"><div class="rc"></div><span class="rl">En réflexion</span><span class="rp">2 pts</span></div>
-      <div class="ro" data-v="4" onclick="rdrR('rg41',this)"><div class="rc"></div><span class="rl">Partiellement structurée</span><span class="rp">4 pts</span></div>
-      <div class="ro" data-v="6" onclick="rdrR('rg41',this)"><div class="rc"></div><span class="rl">Stratégie formalisée</span><span class="rp">6 pts</span></div>
+<div class="rdr-step" id="s4">
+  <div class="rdr-chip">Section 4 / 4</div>
+  <div class="rdr-stitle">Stratégie <em>ESG</em> & gouvernance</div>
+  <div class="rdr-ssub">25 points · Stratégie RSE, KPI, reporting, objectifs environnementaux</div>
+  <div class="rdr-field-row">
+    <div class="rdr-field"><label>4.1 · Stratégie RSE de l'entreprise</label>
+      <div class="rdr-rg" id="rg41">
+        <div class="rdr-ro" data-v="0" onclick="rdrR('rg41',this)"><div class="rdr-rc"></div><span class="rdr-rl">Aucune</span><span class="rdr-rp">0 pt</span></div>
+        <div class="rdr-ro" data-v="2" onclick="rdrR('rg41',this)"><div class="rdr-rc"></div><span class="rdr-rl">En réflexion</span><span class="rdr-rp">2 pts</span></div>
+        <div class="rdr-ro" data-v="4" onclick="rdrR('rg41',this)"><div class="rdr-rc"></div><span class="rdr-rl">Partiellement structurée</span><span class="rdr-rp">4 pts</span></div>
+        <div class="rdr-ro" data-v="6" onclick="rdrR('rg41',this)"><div class="rdr-rc"></div><span class="rdr-rl">Stratégie formalisée</span><span class="rdr-rp">6 pts</span></div>
+      </div>
+    </div>
+    <div class="rdr-field"><label>4.2 · KPI environnementaux suivis</label>
+      <div class="rdr-rg" id="rg42">
+        <div class="rdr-ro" data-v="0" onclick="rdrR('rg42',this)"><div class="rdr-rc"></div><span class="rdr-rl">Aucun</span><span class="rdr-rp">0 pt</span></div>
+        <div class="rdr-ro" data-v="2" onclick="rdrR('rg42',this)"><div class="rdr-rc"></div><span class="rdr-rl">Quelques indicateurs</span><span class="rdr-rp">2 pts</span></div>
+        <div class="rdr-ro" data-v="4" onclick="rdrR('rg42',this)"><div class="rdr-rc"></div><span class="rdr-rl">Plusieurs KPI</span><span class="rdr-rp">4 pts</span></div>
+        <div class="rdr-ro" data-v="6" onclick="rdrR('rg42',this)"><div class="rdr-rc"></div><span class="rdr-rl">Reporting ESG complet</span><span class="rdr-rp">6 pts</span></div>
+      </div>
     </div>
   </div>
-  <div class="field"><label>4.2 · KPI environnementaux suivis</label>
-    <div class="rg" id="rg42">
-      <div class="ro" data-v="0" onclick="rdrR('rg42',this)"><div class="rc"></div><span class="rl">Aucun</span><span class="rp">0 pt</span></div>
-      <div class="ro" data-v="2" onclick="rdrR('rg42',this)"><div class="rc"></div><span class="rl">Quelques indicateurs</span><span class="rp">2 pts</span></div>
-      <div class="ro" data-v="4" onclick="rdrR('rg42',this)"><div class="rc"></div><span class="rl">Plusieurs KPI</span><span class="rp">4 pts</span></div>
-      <div class="ro" data-v="6" onclick="rdrR('rg42',this)"><div class="rc"></div><span class="rl">Reporting ESG complet</span><span class="rp">6 pts</span></div>
+  <div class="rdr-field-row">
+    <div class="rdr-field"><label>4.3 · Valorisation données biodiversité</label>
+      <div class="rdr-rg" id="rg43">
+        <div class="rdr-ro" data-v="0" onclick="rdrR('rg43',this)"><div class="rdr-rc"></div><span class="rdr-rl">Non valorisées</span><span class="rdr-rp">0 pt</span></div>
+        <div class="rdr-ro" data-v="2" onclick="rdrR('rg43',this)"><div class="rdr-rc"></div><span class="rdr-rl">Peu valorisées</span><span class="rdr-rp">2 pts</span></div>
+        <div class="rdr-ro" data-v="4" onclick="rdrR('rg43',this)"><div class="rdr-rc"></div><span class="rdr-rl">Partiellement intégrées</span><span class="rdr-rp">4 pts</span></div>
+        <div class="rdr-ro" data-v="6" onclick="rdrR('rg43',this)"><div class="rdr-rc"></div><span class="rdr-rl">Intégrées aux reportings ESG</span><span class="rdr-rp">6 pts</span></div>
+      </div>
+    </div>
+    <div class="rdr-field"><label>4.4 · Objectifs environnementaux définis</label>
+      <div class="rdr-rg" id="rg44">
+        <div class="rdr-ro" data-v="0" onclick="rdrR('rg44',this)"><div class="rdr-rc"></div><span class="rdr-rl">Aucun objectif</span><span class="rdr-rp">0 pt</span></div>
+        <div class="rdr-ro" data-v="2" onclick="rdrR('rg44',this)"><div class="rdr-rc"></div><span class="rdr-rl">Objectifs généraux</span><span class="rdr-rp">2 pts</span></div>
+        <div class="rdr-ro" data-v="5" onclick="rdrR('rg44',this)"><div class="rdr-rc"></div><span class="rdr-rl">Objectifs définis et suivis</span><span class="rdr-rp">5 pts</span></div>
+        <div class="rdr-ro" data-v="7" onclick="rdrR('rg44',this)"><div class="rdr-rc"></div><span class="rdr-rl">Objectifs mesurés annuellement</span><span class="rdr-rp">7 pts</span></div>
+      </div>
     </div>
   </div>
-  <div class="field"><label>4.3 · Valorisation données biodiversité</label>
-    <div class="rg" id="rg43">
-      <div class="ro" data-v="0" onclick="rdrR('rg43',this)"><div class="rc"></div><span class="rl">Non valorisées</span><span class="rp">0 pt</span></div>
-      <div class="ro" data-v="2" onclick="rdrR('rg43',this)"><div class="rc"></div><span class="rl">Peu valorisées</span><span class="rp">2 pts</span></div>
-      <div class="ro" data-v="4" onclick="rdrR('rg43',this)"><div class="rc"></div><span class="rl">Partiellement intégrées</span><span class="rp">4 pts</span></div>
-      <div class="ro" data-v="6" onclick="rdrR('rg43',this)"><div class="rc"></div><span class="rl">Intégrées aux reportings ESG</span><span class="rp">6 pts</span></div>
-    </div>
-  </div>
-  <div class="field"><label>4.4 · Objectifs environnementaux définis</label>
-    <div class="rg" id="rg44">
-      <div class="ro" data-v="0" onclick="rdrR('rg44',this)"><div class="rc"></div><span class="rl">Aucun objectif</span><span class="rp">0 pt</span></div>
-      <div class="ro" data-v="2" onclick="rdrR('rg44',this)"><div class="rc"></div><span class="rl">Objectifs généraux</span><span class="rp">2 pts</span></div>
-      <div class="ro" data-v="5" onclick="rdrR('rg44',this)"><div class="rc"></div><span class="rl">Objectifs définis et suivis</span><span class="rp">5 pts</span></div>
-      <div class="ro" data-v="7" onclick="rdrR('rg44',this)"><div class="rc"></div><span class="rl">Objectifs mesurés annuellement</span><span class="rp">7 pts</span></div>
-    </div>
-  </div>
-  <div class="btn-row"><button class="btn btn-s" onclick="rdrGo(3)">← Retour</button><button class="btn btn-p" onclick="rdrCA()">Calculer mon score 🐝</button></div>
- </div>
+  <div class="rdr-btn-row"><button class="rdr-btn rdr-btn-s" onclick="rdrGo(3)">← Retour</button><button class="rdr-btn rdr-btn-p" onclick="rdrCA()">Calculer mon score 🐝</button></div>
 </div>
 
 <!-- RÉSULTAT -->
-<div class="res" id="res">
- <div class="inner">
-  <div class="res-hdr">
-    <div class="ring-w">
-      <svg width="165" height="165" viewBox="0 0 165 165"><circle class="ring-bg" cx="82.5" cy="82.5" r="70"/><circle class="ring-arc" id="rarc" cx="82.5" cy="82.5" r="70"/></svg>
-      <div class="ring-c"><span class="rnum" id="rnum">0</span><span class="rden">/ 100</span></div>
+<div class="rdr-res" id="res">
+  <div class="rdr-res-hdr">
+    <div class="rdr-ring-w">
+      <svg width="155" height="155" viewBox="0 0 155 155"><circle class="rdr-ring-bg" cx="77.5" cy="77.5" r="70"/><circle class="rdr-ring-arc" id="rarc" cx="77.5" cy="77.5" r="70"/></svg>
+      <div class="rdr-ring-c"><span class="rdr-rnum" id="rnum">0</span><span class="rdr-rden">/ 100</span></div>
     </div>
-    <div class="rlvl" id="rlvl">—</div>
-    <div class="rtag" id="rtag">—</div>
-    <div class="rco" id="rco">—</div>
+    <div class="rdr-rlvl" id="rlvl">—</div>
+    <div class="rdr-rtag" id="rtag">—</div>
+    <div class="rdr-rco" id="rco">—</div>
   </div>
-  <div class="bkd">
-    <div class="bkd-t">Détail par section — barème officiel</div>
-    <div class="bd-r"><div class="bd-l"><span>🌿 Environnement & végétalisation</span><span class="bd-sc"><span id="bs1">—</span><span style="font-size:.55rem;color:#888">/ 30</span></span></div><div class="bd-bw"><div class="bd-b" id="bb1" style="background:#508028"></div></div></div>
-    <div class="bd-r"><div class="bd-l"><span>🐝 Activité pollinisatrice</span><span class="bd-sc"><span id="bs2">—</span><span style="font-size:.55rem;color:#888">/ 25</span></span></div><div class="bd-bw"><div class="bd-b" id="bb2" style="background:#c8860a"></div></div></div>
-    <div class="bd-r"><div class="bd-l"><span>👥 Engagement RSE</span><span class="bd-sc"><span id="bs3">—</span><span style="font-size:.55rem;color:#888">/ 20</span></span></div><div class="bd-bw"><div class="bd-b" id="bb3" style="background:#4888a8"></div></div></div>
-    <div class="bd-r"><div class="bd-l"><span>🏛️ Stratégie ESG</span><span class="bd-sc"><span id="bs4">—</span><span style="font-size:.55rem;color:#888">/ 25</span></span></div><div class="bd-bw"><div class="bd-b" id="bb4" style="background:#3a6818"></div></div></div>
+  <div class="rdr-res-cols">
+    <div>
+      <div class="rdr-bkd">
+        <div class="rdr-bkd-t">Détail par section</div>
+        <div class="rdr-bd-r"><div class="rdr-bd-l"><span>🌿 Environnement & végétalisation</span><span class="rdr-bd-sc"><span id="bs1">—</span><span style="font-size:.55rem;color:#888">/ 30</span></span></div><div class="rdr-bd-bw"><div class="rdr-bd-b" id="bb1" style="background:#508028"></div></div></div>
+        <div class="rdr-bd-r"><div class="rdr-bd-l"><span>🐝 Activité pollinisatrice</span><span class="rdr-bd-sc"><span id="bs2">—</span><span style="font-size:.55rem;color:#888">/ 25</span></span></div><div class="rdr-bd-bw"><div class="rdr-bd-b" id="bb2" style="background:#c8860a"></div></div></div>
+        <div class="rdr-bd-r"><div class="rdr-bd-l"><span>👥 Engagement RSE</span><span class="rdr-bd-sc"><span id="bs3">—</span><span style="font-size:.55rem;color:#888">/ 20</span></span></div><div class="rdr-bd-bw"><div class="rdr-bd-b" id="bb3" style="background:#4888a8"></div></div></div>
+        <div class="rdr-bd-r"><div class="rdr-bd-l"><span>🏛️ Stratégie ESG</span><span class="rdr-bd-sc"><span id="bs4">—</span><span style="font-size:.55rem;color:#888">/ 25</span></span></div><div class="rdr-bd-bw"><div class="rdr-bd-b" id="bb4" style="background:#3a6818"></div></div></div>
+      </div>
+    </div>
+    <div>
+      <div class="rdr-rc-t">Recommandations prioritaires</div>
+      <div id="rlist"></div>
+    </div>
   </div>
-  <div style="margin-bottom:1.2rem">
-    <div class="rc-t">Recommandations prioritaires</div>
-    <div id="rlist"></div>
+  <div class="rdr-pdf-z">
+    <div class="rdr-pdf-ic">📄</div>
+    <div><div class="rdr-pdf-ti">Télécharger mon rapport PDF</div><div class="rdr-pdf-de">Exportez l'analyse complète pour votre reporting RSE.</div></div>
+    <button class="rdr-btn rdr-btn-pdf" onclick="rdrPDF()" style="margin-left:auto;white-space:nowrap;flex-shrink:0">⬇ PDF</button>
   </div>
-  <div class="pdf-z">
-    <div class="pdf-ic">📄</div>
-    <div><div class="pdf-ti">Télécharger mon rapport PDF</div><div class="pdf-de">Exportez l'analyse complète pour votre reporting RSE.</div></div>
-    <button class="btn btn-pdf" onclick="rdrPDF()" style="margin-left:auto;white-space:nowrap;flex-shrink:0">⬇ PDF</button>
+  <div class="rdr-cta">
+    <div style="font-size:1.5rem;flex-shrink:0">🤝</div>
+    <div><div class="rdr-cta-ti">Améliorez ce score avec un parrainage de ruches</div><div class="rdr-cta-de">Chaque ruche parrainée finance des actions concrètes et mesurables.</div></div>
+    <button class="rdr-cta-btn" onclick="window.open('https://www.lesreinesdurucher.fr/','_blank')">Découvrir →</button>
   </div>
-  <div class="cta">
-    <div style="font-size:1.6rem;flex-shrink:0">🤝</div>
-    <div><div class="cta-ti">Améliorez ce score avec un parrainage de ruches</div><div class="cta-de">Chaque ruche parrainée finance des actions concrètes et mesurables.</div></div>
-    <button class="cta-btn" onclick="window.open('https://www.lesreinesdurucher.fr/','_blank')">Découvrir →</button>
-  </div>
-  <div style="text-align:center;padding-bottom:.5rem"><button class="btn btn-s" onclick="rdrRS()" style="font-size:.64rem">↺ Refaire l'analyse</button></div>
- </div>
+  <div style="text-align:center;padding:.5rem 0"><button class="rdr-btn rdr-btn-s" onclick="rdrRS()" style="font-size:.62rem">↺ Refaire l'analyse</button></div>
 </div>
 
 </div><!-- /#rdrw -->
@@ -475,13 +486,14 @@ function rdrGo(n){
     if(!document.getElementById('addr').value.trim()){alert("Merci de saisir l'adresse du site.");return;}
     if(!document.getElementById('zone').value){alert("Merci de sélectionner une zone géographique.");return;}
   }
-  document.querySelectorAll('#rdrw .step').forEach(function(s){s.classList.remove('on');});
+  document.querySelectorAll('#rdrw .rdr-step').forEach(function(s){s.classList.remove('on');});
+  document.getElementById('res').classList.remove('on');
   var el=document.getElementById('s'+n);if(el)el.classList.add('on');
   RDR.step=n;rdrPG(n);
   window.scrollTo({top:0,behavior:'smooth'});
 }
 function rdrPG(n){for(var i=0;i<4;i++)document.getElementById('pf'+i).style.width=(i<n?'100%':'0%');}
-function rdrSC(el){document.querySelectorAll('#rdrw .sc').forEach(function(c){c.classList.remove('on');});el.classList.add('on');}
+function rdrSC(el){document.querySelectorAll('#rdrw .rdr-sc').forEach(function(c){c.classList.remove('on');});el.classList.add('on');}
 function rdrAI(){clearTimeout(window._rdrT);window._rdrT=setTimeout(rdrAF,600);}
 function rdrZC(){rdrAF();}
 function rdrAF(){
@@ -502,20 +514,20 @@ function rdrAF(){
 }
 function rdrPre(gid,val,bid){
   var g=document.getElementById(gid);if(!g)return;
-  var opts=g.querySelectorAll('.ro');
-  opts.forEach(function(o){o.classList.remove('on','pf');var s=o.querySelector('.rsrc');if(s)s.remove();});
+  var opts=g.querySelectorAll('.rdr-ro');
+  opts.forEach(function(o){o.classList.remove('on','pf');var s=o.querySelector('.rdr-rsrc');if(s)s.remove();});
   var best=null,bestV=-1;
   opts.forEach(function(o){var v=parseInt(o.dataset.v);if(v===val){best=o;bestV=v;}else if(!best&&v<=val&&v>bestV){best=o;bestV=v;}});
   if(!best){var mn=999;opts.forEach(function(o){var v=parseInt(o.dataset.v);if(v<mn){mn=v;best=o;}});}
   if(best){
     best.classList.add('on','pf');
-    var lbl=best.querySelector('.rl');
-    var sp=document.createElement('span');sp.className='rsrc';sp.textContent='données officielles';lbl.appendChild(sp);
+    var lbl=best.querySelector('.rdr-rl');
+    var sp=document.createElement('span');sp.className='rdr-rsrc';sp.textContent='données officielles';lbl.appendChild(sp);
   }
   if(bid){var b=document.getElementById(bid);if(b)b.style.display='inline';}
 }
 function rdrR(gid,el){
-  document.querySelectorAll('#'+gid+' .ro').forEach(function(o){o.classList.remove('on');});
+  document.querySelectorAll('#'+gid+' .rdr-ro').forEach(function(o){o.classList.remove('on');});
   el.classList.add('on');
 }
 function rdrTR(show){
@@ -528,13 +540,13 @@ function rdrRU(){
   var b=(n<=2?0:n<=5?1:2);
   document.getElementById('rpts').textContent='Score bonus : '+b+' pt'+(b>1?'s':'');
 }
-function rdrV(gid){var s=document.querySelector('#'+gid+' .ro.on');return s?s.dataset.v:null;}
+function rdrV(gid){var s=document.querySelector('#'+gid+' .rdr-ro.on');return s?s.dataset.v:null;}
 function rdrCA(){
   var req=[['rg11','1.1'],['rg12','1.2'],['rg13','1.3'],['rg14','1.4'],['rg15','1.5'],
            ['rg22','2.2'],['rg23','2.3'],['rg24','2.4'],['rg25','2.5'],
            ['rg31','3.1'],['rg32','3.2'],['rg33','3.3'],['rg34','3.4'],
            ['rg41','4.1'],['rg42','4.2'],['rg43','4.3'],['rg44','4.4']];
-  var sel21=document.querySelector('#rg21a .ro.on');
+  var sel21=document.querySelector('#rg21a .rdr-ro.on');
   if(!sel21){alert("Merci de répondre à la question 2.1a");return;}
   for(var i=0;i<req.length;i++){if(!rdrV(req[i][0])){alert("Merci de répondre à la question "+req[i][1]);return;}}
   var v21=sel21.dataset.v;
@@ -551,7 +563,7 @@ function rdrCA(){
   rdrSH(s1,s2,s3,s4,tot,v21,nb);
 }
 function rdrSH(s1,s2,s3,s4,tot,v21,nb){
-  document.querySelectorAll('#rdrw .step').forEach(function(s){s.classList.remove('on');});
+  document.querySelectorAll('#rdrw .rdr-step').forEach(function(s){s.classList.remove('on');});
   document.getElementById('res').classList.add('on');
   rdrPG(4);
   var level,tag,col;
@@ -586,8 +598,8 @@ function rdrSH(s1,s2,s3,s4,tot,v21,nb){
   if(recos.length===0)recos.push({t:'Score excellent ! Documentez vos pratiques dans votre rapport RSE annuel.',g:'Score stable',c:'#186840'});
   var rl=document.getElementById('rlist');rl.innerHTML='';
   recos.slice(0,4).forEach(function(r,i){
-    var el=document.createElement('div');el.className='ri';
-    el.innerHTML='<div class="rd" style="background:'+r.c+'"></div><div><div class="rt">'+r.t+'</div><div class="rg2" style="color:'+r.c+'">'+r.g+'</div></div>';
+    var el=document.createElement('div');el.className='rdr-ri';
+    el.innerHTML='<div class="rdr-rd" style="background:'+r.c+'"></div><div><div class="rdr-rt">'+r.t+'</div><div class="rdr-rg2" style="color:'+r.c+'">'+r.g+'</div></div>';
     rl.appendChild(el);setTimeout(function(){el.classList.add('on');},400+i*110);
   });
   RDR._tot=tot;RDR._lvl=level;RDR._s=[s1,s2,s3,s4];
@@ -598,7 +610,7 @@ function rdrPDF(){
   var ad=document.getElementById('addr').value||'';
   var tot=RDR._tot||0;var lvl=RDR._lvl||'';
   var sc=RDR._s||[0,0,0,0];
-  var sel21=document.querySelector('#rg21a .ro.on');
+  var sel21=document.querySelector('#rg21a .rdr-ro.on');
   var v21=sel21?sel21.dataset.v:'non';
   var nb=(v21!=='non')?document.getElementById('rnm').textContent:'0';
   var pco=(co?co+' · ':'')+ad+' · '+nb+' ruche(s)';
@@ -608,55 +620,29 @@ function rdrPDF(){
   var smx=[30,25,20,25];
   for(var i=0;i<4;i++){pbkHTML+='<div style="margin-bottom:3mm"><div style="display:flex;justify-content:space-between;font-size:11px;margin-bottom:2px"><span>'+sn[i]+'</span><strong style="color:#c8860a">'+sc[i]+'/'+smx[i]+'</strong></div><div style="height:4px;background:#f0e8d0;border-radius:3px;overflow:hidden"><div style="width:'+(sc[i]/smx[i]*100)+'%;height:100%;background:#c8860a;border-radius:3px"></div></div></div>';}
   var precoHTML='';
-  document.querySelectorAll('#rlist .ri').forEach(function(el){
-    var t=el.querySelector('.rt').textContent;
-    var g=el.querySelector('.rg2').textContent;
-    var c=el.querySelector('.rd').style.background;
+  document.querySelectorAll('#rlist .rdr-ri').forEach(function(el){
+    var t=el.querySelector('.rdr-rt').textContent;
+    var g=el.querySelector('.rdr-rg2').textContent;
+    var c=el.querySelector('.rdr-rd').style.background;
     precoHTML+='<div style="display:flex;gap:7px;margin-bottom:3mm;font-size:10px;line-height:1.5;font-family:Arial,sans-serif"><div style="width:6px;height:6px;border-radius:50%;background:'+c+';flex-shrink:0;margin-top:3px"></div><div>'+t+'<div style="font-size:9px;font-weight:500;color:'+c+'">'+g+'</div></div></div>';
   });
   var dt=new Date().toLocaleDateString('fr-FR',{day:'2-digit',month:'long',year:'numeric'});
   var w=window.open('','_blank','width=900,height=700');
-  w.document.write('<!DOCTYPE html><html lang="fr"><head><meta charset="UTF-8"><title>Biodiversity Score — Les Reines du Rucher</title><style>');
-  w.document.write('@page{size:A4 portrait;margin:0}*{box-sizing:border-box;margin:0;padding:0}');
-  w.document.write('html,body{width:210mm;height:297mm;background:white;font-family:Georgia,serif;color:#1e1408}');
-  w.document.write('.page{width:210mm;height:297mm;position:relative;background:white}');
-  w.document.write('.topbar{height:7px;background:#C0D2C1;width:100%}');
-  w.document.write('.body{padding:12mm 16mm 22mm 16mm}');
-  w.document.write('.hdr{display:flex;align-items:center;gap:14px;margin-bottom:8mm;padding-bottom:5mm;border-bottom:2px solid #c8860a}');
-  w.document.write('.logo{width:55px;height:55px;object-fit:contain;flex-shrink:0}');
-  w.document.write('.brand{font-size:21px;font-weight:bold;color:#1e1408;line-height:1.2}');
-  w.document.write('.sub{font-size:9px;color:#8a7860;margin-top:2px;letter-spacing:.12em;text-transform:uppercase;font-family:Arial,sans-serif}');
-  w.document.write('.dbadge{margin-left:auto;text-align:right;font-size:9px;color:#c8b898;font-family:Arial,sans-serif;line-height:1.6}');
-  w.document.write('.srow{display:flex;align-items:center;gap:20px;margin-bottom:7mm;background:#faf7f0;border:1px solid #e8dcc8;border-left:5px solid #c8860a;border-radius:4px;padding:6mm 10mm}');
-  w.document.write('.snum{font-size:50px;font-weight:bold;color:#c8860a;line-height:1}');
-  w.document.write('.sden{font-size:14px;color:#c8b898;display:block;text-align:center}');
-  w.document.write('.slvl{font-size:22px;font-style:italic;color:#1e1408;margin-bottom:3px}');
-  w.document.write('.stag{font-size:9px;color:#8a7860;letter-spacing:.08em;text-transform:uppercase;font-family:Arial,sans-serif}');
-  w.document.write('.sco{font-size:11px;color:#5a4a30;margin-top:4px;font-family:Arial,sans-serif}');
-  w.document.write('.cols{display:flex;gap:8mm;margin-bottom:5mm}');
-  w.document.write('.col{flex:1}');
-  w.document.write('.secttitle{font-size:8px;text-transform:uppercase;letter-spacing:.14em;color:#8a7860;margin-bottom:3mm;padding-bottom:2mm;border-bottom:1px solid #e8dcc8;font-family:Arial,sans-serif}');
-  w.document.write('.footer{position:absolute;bottom:0;left:0;right:0;height:16mm;background:#C0D2C1;display:flex;align-items:center;justify-content:space-between;padding:0 16mm;gap:10px}');
-  w.document.write('.flogo{width:30px;height:30px;object-fit:contain;background:white;border-radius:50%;padding:3px;flex-shrink:0}');
-  w.document.write('.fname{font-size:10px;font-weight:bold;color:#2e1f08;font-family:Arial,sans-serif}');
-  w.document.write('.fcontact{font-size:8px;color:rgba(46,31,8,.75);font-family:Arial,sans-serif}');
-  w.document.write('.furl{font-size:10px;color:#2e1f08;font-family:Arial,sans-serif;font-weight:bold}');
-  w.document.write('.fsrc{font-size:7px;color:rgba(46,31,8,.5);font-family:Arial,sans-serif;text-align:right;line-height:1.4}');
-  w.document.write('</style></head><body>');
+  w.document.write('<!DOCTYPE html><html lang="fr"><head><meta charset="UTF-8"><title>Biodiversity Score — Les Reines du Rucher</title><style>@page{size:A4 portrait;margin:0}*{box-sizing:border-box;margin:0;padding:0}html,body{width:210mm;height:297mm;background:white;font-family:Georgia,serif;color:#1e1408}.page{width:210mm;height:297mm;position:relative;background:white}.topbar{height:7px;background:#C0D2C1;width:100%}.body{padding:12mm 16mm 22mm 16mm}.hdr{display:flex;align-items:center;gap:14px;margin-bottom:8mm;padding-bottom:5mm;border-bottom:2px solid #c8860a}.logo{width:55px;height:55px;object-fit:contain;flex-shrink:0}.brand{font-size:21px;font-weight:bold;color:#1e1408;line-height:1.2}.sub{font-size:9px;color:#8a7860;margin-top:2px;letter-spacing:.12em;text-transform:uppercase;font-family:Arial,sans-serif}.dbadge{margin-left:auto;text-align:right;font-size:9px;color:#c8b898;font-family:Arial,sans-serif;line-height:1.6}.srow{display:flex;align-items:center;gap:20px;margin-bottom:7mm;background:#faf7f0;border:1px solid #e8dcc8;border-left:5px solid #c8860a;border-radius:4px;padding:6mm 10mm}.snum{font-size:50px;font-weight:bold;color:#c8860a;line-height:1}.sden{font-size:14px;color:#c8b898;display:block;text-align:center}.slvl{font-size:22px;font-style:italic;color:#1e1408;margin-bottom:3px}.stag{font-size:9px;color:#8a7860;letter-spacing:.08em;text-transform:uppercase;font-family:Arial,sans-serif}.sco{font-size:11px;color:#5a4a30;margin-top:4px;font-family:Arial,sans-serif}.cols{display:flex;gap:8mm;margin-bottom:5mm}.col{flex:1}.secttitle{font-size:8px;text-transform:uppercase;letter-spacing:.14em;color:#8a7860;margin-bottom:3mm;padding-bottom:2mm;border-bottom:1px solid #e8dcc8;font-family:Arial,sans-serif}.footer{position:absolute;bottom:0;left:0;right:0;height:16mm;background:#C0D2C1;display:flex;align-items:center;justify-content:space-between;padding:0 16mm;gap:10px}.flogo{width:30px;height:30px;object-fit:contain;background:white;border-radius:50%;padding:3px;flex-shrink:0}.fname{font-size:10px;font-weight:bold;color:#2e1f08;font-family:Arial,sans-serif}.fcontact{font-size:8px;color:rgba(46,31,8,.75);font-family:Arial,sans-serif}.furl{font-size:10px;color:#2e1f08;font-family:Arial,sans-serif;font-weight:bold}.fsrc{font-size:7px;color:rgba(46,31,8,.5);font-family:Arial,sans-serif;text-align:right;line-height:1.4}</style></head><body>');
   w.document.write('<div class="page"><div class="topbar"></div><div class="body">');
-  w.document.write('<div class="hdr"><img class="logo" src="'+LOGO+'" alt="Les Reines du Rucher"/><div><div class="brand">Les Reines du Rucher</div><div class="sub">Biodiversity Score &middot; Rapport ESG</div></div><div class="dbadge">Rapport du<br><strong>'+dt+'</strong></div></div>');
+  w.document.write('<div class="hdr"><img class="logo" src="'+LOGO+'" alt=""/><div><div class="brand">Les Reines du Rucher</div><div class="sub">Biodiversity Score · Rapport ESG</div></div><div class="dbadge">Rapport du<br><strong>'+dt+'</strong></div></div>');
   w.document.write('<div class="srow"><div style="text-align:center;flex-shrink:0"><span class="snum">'+tot+'</span><span class="sden">/100</span></div><div><div class="slvl">'+lvl+'</div><div class="stag">'+ptag+'</div><div class="sco">'+pco+'</div></div></div>');
   w.document.write('<div class="cols"><div class="col"><div class="secttitle">Détail par section</div>'+pbkHTML+'</div><div class="col"><div class="secttitle">Recommandations prioritaires</div>'+precoHTML+'</div></div>');
-  w.document.write('</div><div class="footer"><img class="flogo" src="'+LOGO+'" alt=""/><div><div class="fname">Les Reines du Rucher</div><div class="fcontact">06 38 79 57 50 &bull; contact@lesreinesdurucher.fr</div></div><div class="furl">www.lesreinesdurucher.fr</div><div class="fsrc">Sources : CORINE Land Cover &bull; RPG/PAC (IGN)<br>SAGE de la Lys &bull; Natura 2000</div></div>');
+  w.document.write('</div><div class="footer"><img class="flogo" src="'+LOGO+'" alt=""/><div><div class="fname">Les Reines du Rucher</div><div class="fcontact">06 38 79 57 50 · contact@lesreinesdurucher.fr</div></div><div class="furl">www.lesreinesdurucher.fr</div><div class="fsrc">Sources : CORINE Land Cover · RPG/PAC (IGN)<br>SAGE de la Lys · Natura 2000</div></div>');
   w.document.write('</div></body></html>');
   w.document.close();
   setTimeout(function(){w.focus();w.print();setTimeout(function(){w.close();},1000);},400);
 }
 function rdrRS(){
   document.getElementById('res').classList.remove('on');
-  document.querySelectorAll('#rdrw .ro').forEach(function(o){o.classList.remove('on','pf');var s=o.querySelector('.rsrc');if(s)s.remove();});
-  document.querySelectorAll('#rdrw .src-b').forEach(function(b){b.style.display='none';});
-  document.querySelectorAll('#rdrw .af-bar').forEach(function(b){b.classList.add('hidden');});
+  document.querySelectorAll('#rdrw .rdr-ro').forEach(function(o){o.classList.remove('on','pf');var s=o.querySelector('.rdr-rsrc');if(s)s.remove();});
+  document.querySelectorAll('#rdrw .rdr-src-b').forEach(function(b){b.style.display='none';});
+  document.querySelectorAll('#rdrw .rdr-af').forEach(function(b){b.classList.add('hidden');});
   var q=document.getElementById('q21b');if(q)q.style.display='none';
   document.getElementById('rarc').style.strokeDashoffset=440;
   RDR.geo=null;rdrGo(0);
