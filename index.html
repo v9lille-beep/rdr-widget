@@ -39,8 +39,8 @@ body{margin:0;padding:0;background:transparent}
 .rdr-af-src{font-size:11px;color:#6a9040;margin-top:4px;font-style:italic}
 
 /* ── FIELDS ── */
-.rdr-field{margin-bottom:44px;width:100%}
-.rdr-field label{display:flex;align-items:center;gap:7px;font-size:12.5px;letter-spacing:.12em;text-transform:uppercase;color:#626262;font-weight:600;margin-bottom:14px;line-height:2}
+.rdr-field{margin-bottom:52px;width:100%}
+.rdr-field label{display:flex;align-items:center;gap:7px;font-size:12.5px;letter-spacing:.12em;text-transform:uppercase;color:#626262;font-weight:600;margin-bottom:16px;line-height:2}
 .rdr-src-b{font-size:9px;padding:2px 6px;border-radius:8px;background:#dff0c8;color:#3a6010;display:none;font-weight:400;letter-spacing:0;text-transform:none}
 .rdr-field input[type=text],.rdr-field select{
   width:100%;padding:15px 18px;
@@ -53,7 +53,7 @@ body{margin:0;padding:0;background:transparent}
   background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='10' height='6'%3E%3Cpath d='M0 0l5 6 5-6z' fill='%232e1f08'/%3E%3C/svg%3E");
   background-repeat:no-repeat;background-position:right 16px center;padding-right:36px;cursor:pointer;
 }
-.rdr-field-row{display:grid;grid-template-columns:1fr 1fr;gap:36px;margin-bottom:0}
+.rdr-field-row{display:grid;grid-template-columns:1fr 1fr;gap:40px;margin-bottom:0}
 .rdr-site-grid{display:grid;grid-template-columns:repeat(6,1fr);gap:10px;margin-top:12px}
 .rdr-sc{background:white;border:1px solid var(--sand);border-radius:8px;padding:18px 8px;cursor:pointer;text-align:center;transition:all .15s}
 .rdr-sc:hover,.rdr-sc.on{border-color:var(--honey);background:#fffbf2}
@@ -62,17 +62,18 @@ body{margin:0;padding:0;background:transparent}
 .rdr-sc-name{font-size:12.5px;color:#626262;line-height:1.5}
 
 /* ── RADIO ── */
-.rdr-rg{display:grid;grid-template-columns:1fr 1fr;gap:10px}
-.rdr-ro{display:flex;align-items:center;gap:12px;padding:14px 16px;background:white;border:1px solid var(--sand);border-radius:8px;cursor:pointer;transition:all .14s}
+.rdr-rg{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+.rdr-rg-4col{display:grid;grid-template-columns:repeat(4,1fr);gap:12px}
+.rdr-ro{display:flex;align-items:center;gap:14px;padding:16px 18px;background:white;border:1px solid var(--sand);border-radius:8px;cursor:pointer;transition:all .14s}
 .rdr-ro:hover{border-color:var(--honey);background:#fffbf0}
 .rdr-ro.on{border-color:var(--honey);background:#fffbf0;box-shadow:0 0 0 1px var(--honey)}
 .rdr-ro.pf{border-color:#b0d880;background:#f8fcf0}
 .rdr-ro.pf.on{border-color:var(--honey);background:#fffbf0;box-shadow:0 0 0 1px var(--honey)}
-.rdr-rc{width:18px;height:18px;border-radius:50%;border:1.5px solid #ccc;flex-shrink:0;display:flex;align-items:center;justify-content:center;transition:all .14s}
+.rdr-rc{width:20px;height:20px;border-radius:50%;border:1.5px solid #ccc;flex-shrink:0;display:flex;align-items:center;justify-content:center;transition:all .14s}
 .rdr-ro.on .rdr-rc{border-color:var(--honey);background:var(--honey)}
-.rdr-ro.on .rdr-rc::after{content:'';width:6px;height:6px;border-radius:50%;background:white}
-.rdr-rl{font-size:14px;color:#626262;flex:1;line-height:1.45}
-.rdr-rp{font-size:12px;color:#aaa;white-space:nowrap}
+.rdr-ro.on .rdr-rc::after{content:'';width:7px;height:7px;border-radius:50%;background:white}
+.rdr-rl{font-size:14.5px;color:#626262;flex:1;line-height:1.5}
+.rdr-rp{font-size:13px;color:#aaa;white-space:nowrap}
 .rdr-ro.on .rdr-rp{color:var(--honey);font-weight:600}
 .rdr-rsrc{font-size:9px;padding:2px 6px;border-radius:5px;background:#dff0c8;color:#3a6010;margin-left:6px;font-weight:400}
 
@@ -87,14 +88,14 @@ body{margin:0;padding:0;background:transparent}
 .rdr-rpts{font-size:13px;color:var(--honey);font-weight:600;margin-top:6px}
 
 /* ── BUTTONS ── */
-.rdr-btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;padding:13px 28px;border-radius:30px;cursor:pointer;font-size:12px;letter-spacing:.07em;text-transform:uppercase;transition:all .18s;border:none}
-.rdr-btn-p{background:var(--honey);color:white;box-shadow:0 2px 10px rgba(200,134,10,.3)}
+.rdr-btn{display:inline-flex;align-items:center;justify-content:center;gap:10px;padding:16px 36px;border-radius:30px;cursor:pointer;font-size:14px;letter-spacing:.07em;text-transform:uppercase;transition:all .18s;border:none;font-weight:600}
+.rdr-btn-p{background:var(--honey);color:white;box-shadow:0 3px 14px rgba(200,134,10,.35)}
 .rdr-btn-p:hover{background:var(--amber);transform:translateY(-1px)}
-.rdr-btn-s{background:transparent;color:var(--wood);border:1px solid var(--sand)}
+.rdr-btn-s{background:transparent;color:var(--wood);border:1.5px solid var(--sand)}
 .rdr-btn-s:hover{border-color:var(--stone);background:var(--sand)}
 .rdr-btn-pdf{background:var(--bark);color:#e8b830;border:1px solid rgba(232,184,48,.2)}
 .rdr-btn-pdf:hover{background:var(--wood)}
-.rdr-btn-row{display:flex;justify-content:space-between;align-items:center;margin-top:36px;padding-top:22px;border-top:1px solid var(--sand)}
+.rdr-btn-row{display:flex;justify-content:space-between;align-items:center;margin-top:42px;padding-top:26px;border-top:1px solid var(--sand)}
 
 /* ── RESULT ── */
 .rdr-res{display:none;width:100%;animation:rdrFU .25s ease both}
@@ -142,6 +143,7 @@ body{margin:0;padding:0;background:transparent}
 
 @media(max-width:700px){
   .rdr-rg{grid-template-columns:1fr}
+  .rdr-rg-4col{grid-template-columns:1fr 1fr}
   .rdr-field-row{grid-template-columns:1fr}
   .rdr-site-grid{grid-template-columns:repeat(3,1fr)}
   .rdr-res-cols{grid-template-columns:1fr}
@@ -255,7 +257,7 @@ body{margin:0;padding:0;background:transparent}
     </div>
   </div>
   <div class="rdr-field"><label>1.5 · Utilisation de pesticides <span class="rdr-src-b" id="sb15">Source</span></label>
-    <div class="rdr-rg" id="rg15">
+    <div class="rdr-rg-4col" id="rg15">
       <div class="rdr-ro" data-v="0" onclick="rdrR('rg15',this)"><div class="rdr-rc"></div><span class="rdr-rl">Fréquente</span><span class="rdr-rp">0 pt</span></div>
       <div class="rdr-ro" data-v="2" onclick="rdrR('rg15',this)"><div class="rdr-rc"></div><span class="rdr-rl">Occasionnelle</span><span class="rdr-rp">2 pts</span></div>
       <div class="rdr-ro" data-v="4" onclick="rdrR('rg15',this)"><div class="rdr-rc"></div><span class="rdr-rl">Rare</span><span class="rdr-rp">4 pts</span></div>
@@ -271,7 +273,7 @@ body{margin:0;padding:0;background:transparent}
   <div class="rdr-stitle">Activité <em>pollinisatrice</em></div>
   <div class="rdr-ssub">25 points · Ruches, diversité florale, mortalité, environnement proche</div>
   <div class="rdr-field"><label>2.1a · Ruches présentes sur votre site ?</label>
-    <div class="rdr-rg" id="rg21a">
+    <div class="rdr-rg-4col" id="rg21a">
       <div class="rdr-ro" data-v="non" onclick="rdrR('rg21a',this);rdrTR('non')"><div class="rdr-rc"></div><span class="rdr-rl">Non, aucune ruche</span><span class="rdr-rp">0 pt</span></div>
       <div class="rdr-ro" data-v="rdr" onclick="rdrR('rg21a',this);rdrTR('oui')"><div class="rdr-rc"></div><span class="rdr-rl">Oui — via <strong>Les Reines du Rucher</strong></span><span class="rdr-rp">5 pts</span></div>
       <div class="rdr-ro" data-v="aut" onclick="rdrR('rg21a',this);rdrTR('oui')"><div class="rdr-rc"></div><span class="rdr-rl">Oui — via un autre prestataire</span><span class="rdr-rp">4 pts</span></div>
